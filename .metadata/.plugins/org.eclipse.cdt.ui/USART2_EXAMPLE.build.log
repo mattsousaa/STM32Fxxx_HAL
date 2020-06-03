@@ -1,0 +1,13 @@
+10:18:52 **** Incremental Build of configuration Debug for project USART2_Example ****
+make -j4 all 
+arm-none-eabi-size   USART2_Example.elf 
+arm-none-eabi-objcopy  -O ihex  USART2_Example.elf  "USART2_Example.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7692	     24	   1632	   9348	   2484	USART2_Example.elf
+Finished building: default.size.stdout
+ 
+Finished building: USART2_Example.hex
+ 
+
+10:18:54 Build Finished. 0 errors, 0 warnings. (took 2s.54ms)
+

@@ -1,0 +1,24 @@
+23:00:23 **** Incremental Build of configuration Debug for project UART2_CE ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/it.d" -MT"Core/Src/it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/it.o"
+arm-none-eabi-gcc "../Core/Src/msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/msp.d" -MT"Core/Src/msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/msp.o"
+arm-none-eabi-gcc -o "UART2_CE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\UART2_CE\STM32F401CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART2_CE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: UART2_CE.elf
+ 
+arm-none-eabi-objdump -h -S  UART2_CE.elf  > "UART2_CE.list"
+arm-none-eabi-objcopy  -O ihex  UART2_CE.elf  "UART2_CE.hex"
+arm-none-eabi-objcopy  -O binary  UART2_CE.elf  "UART2_CE.bin"
+arm-none-eabi-size   UART2_CE.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7556	     24	   1744	   9324	   246c	UART2_CE.elf
+Finished building: default.size.stdout
+ 
+Finished building: UART2_CE.hex
+Finished building: UART2_CE.bin
+ 
+ 
+Finished building: UART2_CE.list
+ 
+
+23:00:26 Build Finished. 0 errors, 0 warnings. (took 2s.970ms)
+

@@ -1,0 +1,12 @@
+15:28:58 **** Build of configuration Debug for project HSE_SYSCLK_8Mhz ****
+make all 
+arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -std=gnu11 -g3 -c -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
+../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c:36:10: fatal error: stm32f1xx_hal.h: No such file or directory
+ #include "stm32f1xx_hal.h"
+          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk:57: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+
+15:28:59 Build Failed. 2 errors, 0 warnings. (took 821ms)
+
