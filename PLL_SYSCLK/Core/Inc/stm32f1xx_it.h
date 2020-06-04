@@ -12,5 +12,3 @@ void PendSV_Handler(void);
 void SysTick_Handler(void);
 
 #endif /* __STM32F1xx_IT_H */
-
-

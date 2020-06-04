@@ -231,7 +231,7 @@ int main(void){
   	return 0;
 }
 
-
+/* For Cortex-M3 */
 void SystemClock_Config(uint8_t clock_freq){
  8000278:	b580      	push	{r7, lr}
  800027a:	b092      	sub	sp, #72	; 0x48
@@ -392,6 +392,9 @@ void SystemClock_Config(uint8_t clock_freq){
  8000360:	10624dd3 	.word	0x10624dd3
 
 08000364 <MX_USART2_UART_Init>:
+
+}
+*/
 
 
 void MX_USART2_UART_Init(void){

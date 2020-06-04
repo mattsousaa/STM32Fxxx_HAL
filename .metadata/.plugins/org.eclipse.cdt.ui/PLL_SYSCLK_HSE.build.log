@@ -1,0 +1,23 @@
+20:46:33 **** Incremental Build of configuration Debug for project PLL_SYSCLK_HSE ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "PLL_SYSCLK_HSE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\PLL_SYSCLK_HSE\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PLL_SYSCLK_HSE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PLL_SYSCLK_HSE.elf
+ 
+arm-none-eabi-objdump -h -S  PLL_SYSCLK_HSE.elf  > "PLL_SYSCLK_HSE.list"
+arm-none-eabi-objcopy  -O ihex  PLL_SYSCLK_HSE.elf  "PLL_SYSCLK_HSE.hex"
+arm-none-eabi-objcopy  -O binary  PLL_SYSCLK_HSE.elf  "PLL_SYSCLK_HSE.bin"
+arm-none-eabi-size   PLL_SYSCLK_HSE.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11192	    124	   1652	  12968	   32a8	PLL_SYSCLK_HSE.elf
+Finished building: default.size.stdout
+ 
+Finished building: PLL_SYSCLK_HSE.hex
+Finished building: PLL_SYSCLK_HSE.bin
+Finished building: PLL_SYSCLK_HSE.list
+ 
+ 
+ 
+
+20:46:37 Build Finished. 0 errors, 0 warnings. (took 3s.799ms)
+

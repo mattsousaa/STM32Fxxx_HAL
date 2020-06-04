@@ -1,12 +1,13 @@
-15:28:58 **** Build of configuration Debug for project HSE_SYSCLK_8Mhz ****
-make all 
-arm-none-eabi-gcc "../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c" -std=gnu11 -g3 -c -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.d" -MT"Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o"
-../Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.c:36:10: fatal error: stm32f1xx_hal.h: No such file or directory
- #include "stm32f1xx_hal.h"
-          ^~~~~~~~~~~~~~~~~
-compilation terminated.
-make: *** [Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk:57: Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
+14:58:40 **** Incremental Build of configuration Debug for project HSE_SYSCLK_8Mhz ****
+make -j4 all 
+arm-none-eabi-size   HSE_SYSCLK_8Mhz.elf 
+arm-none-eabi-objcopy  -O ihex  HSE_SYSCLK_8Mhz.elf  "HSE_SYSCLK_8Mhz.hex"
+   text	   data	    bss	    dec	    hex	filename
+   8424	    124	   1652	  10200	   27d8	HSE_SYSCLK_8Mhz.elf
+Finished building: default.size.stdout
+ 
+Finished building: HSE_SYSCLK_8Mhz.hex
+ 
 
-15:28:59 Build Failed. 2 errors, 0 warnings. (took 821ms)
+14:58:42 Build Finished. 0 errors, 0 warnings. (took 1s.707ms)
 

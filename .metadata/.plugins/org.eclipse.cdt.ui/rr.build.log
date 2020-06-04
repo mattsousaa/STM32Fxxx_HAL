@@ -1,0 +1,13 @@
+14:34:41 **** Incremental Build of configuration Debug for project rr ****
+make -j4 all 
+arm-none-eabi-size   rr.elf 
+arm-none-eabi-objcopy  -O ihex  rr.elf  "rr.hex"
+   text	   data	    bss	    dec	    hex	filename
+  10796	    120	   1648	  12564	   3114	rr.elf
+Finished building: default.size.stdout
+ 
+Finished building: rr.hex
+ 
+
+14:34:43 Build Finished. 0 errors, 0 warnings. (took 2s.63ms)
+
