@@ -1,0 +1,11 @@
+#include "main.h"
+#include "stm32f1xx_hal_tim.h"
+
+void SystemClockConfig(void);
+void TIMER6_Init(void);
+void GPIO_Init(void);
+void Error_Handler(void);
+
+int main(void){
+
+}

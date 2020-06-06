@@ -22,22 +22,22 @@ int main(void){
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg_user, strlen(msg_user), HAL_MAX_DELAY);
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"SYSCLK: %ldHz\r\n",HAL_RCC_GetSysClockFreq());
+	sprintf(msg, "SYSCLK: %ldHz\r\n", HAL_RCC_GetSysClockFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"HCLK: %ldHz\r\n",HAL_RCC_GetHCLKFreq());
+	sprintf(msg, "HCLK: %ldHz\r\n", HAL_RCC_GetHCLKFreq());
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"PCLK1: %ldHz\r\n",HAL_RCC_GetPCLK1Freq());
+	sprintf(msg, "PCLK1: %ldHz\r\n", HAL_RCC_GetPCLK1Freq());
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 
 	memset(msg,0,sizeof(msg));
-	sprintf(msg,"PCLK2: %ldHz\r\n",HAL_RCC_GetPCLK2Freq());
+	sprintf(msg, "PCLK2: %ldHz\r\n", HAL_RCC_GetPCLK2Freq());
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
 	while(1);

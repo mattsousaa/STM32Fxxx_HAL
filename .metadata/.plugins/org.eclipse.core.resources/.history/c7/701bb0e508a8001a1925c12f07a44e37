@@ -1,0 +1,51 @@
+#include "main.h"
+#include "stm32f1xx_hal_tim.h"
+
+void SystemClockConfig(void);
+void TIMER3_Init(void);
+void GPIO_Init(void);
+void Error_Handler(void);
+
+TIM_HandleTypeDef htimer3;
+
+int main(void){
+
+	HAL_Init();
+	SystemClockConfig();
+	GPIO_Init();
+	TIMER3_Init();
+
+}
+
+void SystemClockConfig(void){
+
+
+}
+
+void GPIO_Init(void){
+
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+	GPIO_InitTypeDef ledgpio;
+	ledgpio.Pin = GPIO_PIN_5;
+	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
+	ledgpio.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA,&ledgpio);
+}
+
+void TIMER3_Init(void){
+
+	htimer3.Instance = TIM3;
+	htimer3.Init.Prescaler = 24;
+	htimer3.Init.Period = 64000-1;
+
+	if( HAL_TIM_Base_Init(&htimer3) != HAL_OK ){
+		Error_handler();
+	}
+
+}
+
+
+void Error_Handler(void){
+	while(1);
+}

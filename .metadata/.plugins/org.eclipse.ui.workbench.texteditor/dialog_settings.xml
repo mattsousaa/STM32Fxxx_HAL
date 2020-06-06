@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="RCCEx_Prediv1_Factor"/>
+		<item key="selection" value="HAL_TIM_MODULE_ENABLED"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="RCCEx_Prediv1_Factor"/>
-			<item value="RCCEx_PLL_Multiplication_Factor"/>
-			<item value="RCC_ClkInitStruct"/>
-			<item value="RCC_OscInitStruct"/>
-			<item value="PLL"/>
-			<item value="RCC_PLL_Clock_Source"/>
-			<item value="RCC_System_Clock_Source"/>
-			<item value=" GPIO_pull_define"/>
-			<item value="usart2"/>
-			<item value="GPIO_mode_define"/>
-			<item value="RCC_HSI_Config"/>
-			<item value="RCC_Oscillator_Type"/>
-			<item value="RCC_System_Clock_Type"/>
-			<item value="HAL_RCC_Clock"/>
-			<item value="USART2_IRQHandler"/>
+			<item value="HAL_TIM_MODULE_ENABLED"/>
+			<item value="#define HAL_TIM_MODULE_ENABLED"/>
+			<item value="HAL_TIM_Base_Init"/>
+			<item value="TIM_Counter_Mode"/>
+			<item value="tim"/>
+			<item value="tim1"/>
+			<item value="tim_ty"/>
+			<item value="tim7"/>
+			<item value="tim5"/>
+			<item value="tim6"/>
+			<item value="tim_ha"/>
+			<item value="TIM5"/>
+			<item value="TIM6"/>
+			<item value="TIM_H"/>
+			<item value="gpio_hAN"/>
 		</list>
 		<list key="replacehistory">
 			<item value="clk_init"/>
