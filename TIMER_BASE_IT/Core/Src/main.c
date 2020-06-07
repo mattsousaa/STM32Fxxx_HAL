@@ -74,6 +74,7 @@ void TIMER3_Init(void){
  	 * That's why you should increase or decrease the prescaler value.
  	 * */
 
+	/* Create a time base for 1s with SYSCLK = 8MHz */
 	htimer3.Instance = TIM3;
 	htimer3.Init.Prescaler = 300;
 	htimer3.Init.Period = 26578-1;	// The update event happens after one time gap or one time period
