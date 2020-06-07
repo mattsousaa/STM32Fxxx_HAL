@@ -1,0 +1,12 @@
+#ifndef __MAIN_H
+#define __MAIN_H
+
+#define SYS_CLOCK_FREQ_25_MHZ 	25
+#define SYS_CLOCK_FREQ_50_MHZ 	50
+#define SYS_CLOCK_FREQ_84_MHZ 	84
+
+#include "stm32f4xx_hal.h"
+//Uncomment the #define HAL_TIM_MODULE_ENABLED in stm32f4xx_hal_conf.h
+#include "stm32f4xx_hal_conf.h"
+
+#endif /* __MAIN_H */
