@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  00012a80  00000000  00000000  00028a98  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00005519  00000000  00000000  0003b518  2**0
+ 17 .debug_line   0000551b  00000000  00000000  0003b518  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    00068cb2  00000000  00000000  00040a31  2**0
+ 18 .debug_str    00068cb2  00000000  00000000  00040a33  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000a96e3  2**0
+ 19 .comment      0000007b  00000000  00000000  000a96e5  2**0
                   CONTENTS, READONLY
  20 .debug_frame  00002134  00000000  00000000  000a9760  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -77,9 +77,9 @@ Disassembly of section .text:
  8000148:	08000dc8 	.word	0x08000dc8
 
 0800014c <main>:
-void Error_Handler(void);
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 
+/* TIMER3 can be used for basic timer
+ * See STM32 cross-series timer overview document for more details */
 TIM_HandleTypeDef htimer3;
 
 int main(void){
@@ -206,7 +206,11 @@ void GPIO_Init(void){
 void TIMER3_Init(void){
  80001f0:	b580      	push	{r7, lr}
  80001f2:	af00      	add	r7, sp, #0
+ 	 * This math results in 1600000 and should be placed in TIMx_ARR register, but this value is greater than 65535;
+ 	 * That's why you should increase or decrease the prescaler value.
+ 	 * */
 
+	/* Create a time base for 1s with SYSCLK = 8MHz */
 	htimer3.Instance = TIM3;
  80001f4:	4b0a      	ldr	r3, [pc, #40]	; (8000220 <TIMER3_Init+0x30>)
  80001f6:	4a0b      	ldr	r2, [pc, #44]	; (8000224 <TIMER3_Init+0x34>)
@@ -215,7 +219,7 @@ void TIMER3_Init(void){
  80001fa:	4b09      	ldr	r3, [pc, #36]	; (8000220 <TIMER3_Init+0x30>)
  80001fc:	f44f 7296 	mov.w	r2, #300	; 0x12c
  8000200:	605a      	str	r2, [r3, #4]
-	htimer3.Init.Period = 26578-1;
+	htimer3.Init.Period = 26578-1;	// The update event happens after one time gap or one time period
  8000202:	4b07      	ldr	r3, [pc, #28]	; (8000220 <TIMER3_Init+0x30>)
  8000204:	f246 72d1 	movw	r2, #26577	; 0x67d1
  8000208:	60da      	str	r2, [r3, #12]

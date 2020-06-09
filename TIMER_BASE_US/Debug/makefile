@@ -24,27 +24,27 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-TIMER_BASE_US.elf \
+TIMER_IC_1.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-TIMER_BASE_US.list \
+TIMER_IC_1.list \
 
 OBJCOPY_HEX += \
-TIMER_BASE_US.hex \
+TIMER_IC_1.hex \
 
 OBJCOPY_BIN += \
-TIMER_BASE_US.bin \
+TIMER_IC_1.bin \
 
 
 # All Target
-all: TIMER_BASE_US.elf secondary-outputs
+all: TIMER_IC_1.elf secondary-outputs
 
 # Tool invocations
-TIMER_BASE_US.elf: $(OBJS) $(USER_OBJS) C:\Users\mateu\Documents\Curso\ STM32\MCU2\TIMER_BASE_US\STM32F103C6TX_FLASH.ld
-	arm-none-eabi-gcc -o "TIMER_BASE_US.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\TIMER_BASE_US\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TIMER_BASE_US.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+TIMER_IC_1.elf: $(OBJS) $(USER_OBJS) C:\Users\mateu\Documents\Curso\ STM32\MCU2\TIMER_IC_1\STM32F103C6TX_FLASH.ld
+	arm-none-eabi-gcc -o "TIMER_IC_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\TIMER_IC_1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TIMER_IC_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -53,18 +53,18 @@ default.size.stdout: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TIMER_BASE_US.list: $(EXECUTABLES)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TIMER_BASE_US.list"
+TIMER_IC_1.list: $(EXECUTABLES)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "TIMER_IC_1.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TIMER_BASE_US.hex: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "TIMER_BASE_US.hex"
+TIMER_IC_1.hex: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "TIMER_IC_1.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-TIMER_BASE_US.bin: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "TIMER_BASE_US.bin"
+TIMER_IC_1.bin: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "TIMER_IC_1.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 

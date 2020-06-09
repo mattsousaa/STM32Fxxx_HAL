@@ -1,0 +1,156 @@
+#include <string.h>
+#include <stdio.h>
+#include "main.h"
+#include "stm32f1xx_hal_tim.h"
+
+void SystemClock_Config(uint8_t clock_freq);
+void MX_USART2_UART_Init(void);
+void TIMER2_Init(void);
+void GPIO_Init(void);
+void Error_Handler(void);
+
+TIM_HandleTypeDef htimer2;
+UART_HandleTypeDef huart2;
+
+char *msg_user = "The application is running\r\n";
+
+int main(void){
+
+	HAL_Init();
+	SystemClock_Config(SYS_CLOCK_FREQ_20_MHZ);
+	GPIO_Init();
+	TIMER2_Init();
+
+	MX_USART2_UART_Init();
+
+	HAL_TIM_IC_Start(&htimer2, TIM_CHANNEL_1);
+
+	//if(HAL_TIM_IC_Start_IT(&htimer2,TIM_CHANNEL_1) != HAL_OK){
+	//	Error_Handler();
+	//}
+
+	while(1){
+		/* Loop until the update event flag is set */
+		while(! (TIM2->SR & TIM_SR_CC1OF));
+
+		HAL_UART_Transmit(&huart2, (uint8_t*)msg_user, strlen(msg_user), HAL_MAX_DELAY);
+		/* The required time delay has been elapsed */
+		/* User code can be executed */
+		TIM2->SR = 0;
+		HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+	}
+
+  	return 0;
+}
+
+/* For Cortex-M3 (STM32F1xx)*/
+void SystemClock_Config(uint8_t clock_freq){
+
+	RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+	  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+
+	  /** Initializes the CPU, AHB and APB busses clocks
+	  */
+	  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+	  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+	  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+	  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+	  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+	  /** Initializes the CPU, AHB and APB busses clocks
+	  */
+	  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+	                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+	  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+	  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+	  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+	  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+
+	  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+}
+
+void GPIO_Init(void){
+
+	GPIO_InitTypeDef ledgpio;
+
+	/* GPIOA clock enable */
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+    /* High Level GPIO Initialization */
+	ledgpio.Pin = GPIO_PIN_5;
+	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
+	ledgpio.Pull = GPIO_NOPULL;
+	ledgpio.Speed = GPIO_SPEED_FREQ_LOW;
+
+	/* Init GPIO */
+	HAL_GPIO_Init(GPIOA, &ledgpio);
+
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim){
+
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+
+}
+
+void TIMER2_Init(void){
+
+	TIM_IC_InitTypeDef sConfigIC = {0};
+	TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+	htimer2.Instance = TIM2;
+	htimer2.Init.CounterMode = TIM_COUNTERMODE_UP;
+	htimer2.Init.Period = 0xFFFF;
+	htimer2.Init.Prescaler = 1;
+	htimer2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+	htimer2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+
+	if(HAL_TIM_IC_Init(&htimer2) != HAL_OK){
+		Error_Handler();
+	}
+
+	sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+	sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+	sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+	sConfigIC.ICFilter = 0;
+
+	if(HAL_TIM_IC_ConfigChannel(&htimer2, &sConfigIC, TIM_CHANNEL_1) != HAL_OK){
+	    Error_Handler();
+	}
+
+	sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+	  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+	  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+}
+
+void MX_USART2_UART_Init(void){
+
+	huart2.Instance = USART2;
+	huart2.Init.BaudRate = 115200;
+	huart2.Init.WordLength = UART_WORDLENGTH_8B;
+	huart2.Init.StopBits = UART_STOPBITS_1;
+	huart2.Init.Parity = UART_PARITY_NONE;
+	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart2.Init.Mode = UART_MODE_TX;
+
+	if(HAL_UART_Init(&huart2) != HAL_OK){
+		Error_Handler();
+  	}
+
+}
+
+void Error_Handler(void){
+
+}

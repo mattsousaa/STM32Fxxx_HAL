@@ -18,8 +18,6 @@ int main(void){
 	GPIO_Init();
 	TIMER3_Init();
 
-	HAL_TIM_Base_Start(&htimer3);
-
 	//Lets start timer in IT mode
 	HAL_TIM_Base_Start_IT(&htimer3);
 

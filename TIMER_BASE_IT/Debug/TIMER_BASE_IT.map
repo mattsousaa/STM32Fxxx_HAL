@@ -2619,17 +2619,17 @@ OUTPUT(TIMER_BASE_IT.elf elf32-littlearm)
  .debug_macro   0x0000000000012761      0x190 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
  .debug_macro   0x00000000000128f1      0x18f Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
 
-.debug_line     0x0000000000000000     0x5519
- .debug_line    0x0000000000000000      0x67a Core/Src/main.o
- .debug_line    0x000000000000067a      0x631 Core/Src/stm32f1xx_hal_msp.o
- .debug_line    0x0000000000000cab      0x639 Core/Src/stm32f1xx_it.o
- .debug_line    0x00000000000012e4      0x64f Core/Src/system_stm32f1xx.o
- .debug_line    0x0000000000001933       0x84 Core/Startup/startup_stm32f103c6tx.o
- .debug_line    0x00000000000019b7      0x7f7 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
- .debug_line    0x00000000000021ae      0x8d0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
- .debug_line    0x0000000000002a7e      0x7e3 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
- .debug_line    0x0000000000003261     0x16ae Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
- .debug_line    0x000000000000490f      0xc0a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
+.debug_line     0x0000000000000000     0x551b
+ .debug_line    0x0000000000000000      0x67c Core/Src/main.o
+ .debug_line    0x000000000000067c      0x631 Core/Src/stm32f1xx_hal_msp.o
+ .debug_line    0x0000000000000cad      0x639 Core/Src/stm32f1xx_it.o
+ .debug_line    0x00000000000012e6      0x64f Core/Src/system_stm32f1xx.o
+ .debug_line    0x0000000000001935       0x84 Core/Startup/startup_stm32f103c6tx.o
+ .debug_line    0x00000000000019b9      0x7f7 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal.o
+ .debug_line    0x00000000000021b0      0x8d0 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_cortex.o
+ .debug_line    0x0000000000002a80      0x7e3 Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_gpio.o
+ .debug_line    0x0000000000003263     0x16ae Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim.o
+ .debug_line    0x0000000000004911      0xc0a Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_tim_ex.o
 
 .debug_str      0x0000000000000000    0x68cb2
  .debug_str     0x0000000000000000    0x66bc9 Core/Src/main.o
