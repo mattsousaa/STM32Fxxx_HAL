@@ -47,6 +47,19 @@ void HAL_TIM_IC_MspInit(TIM_HandleTypeDef* htim){
 
 }
 
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer){
+
+	//1. enable the clock for the TIM6 peripheral
+	__HAL_RCC_TIM3_CLK_ENABLE();
+
+	//2. Enable the IRQ of TIM6
+	HAL_NVIC_EnableIRQ(TIM3_IRQn);
+
+	//3. setup the priority for TIM6_DAC_IRQn
+	HAL_NVIC_SetPriority(TIM3_IRQn, 15, 0);
+
+}
+
 /**
 * @brief UART MSP Initialization
 * This function configures the hardware resources used in this example

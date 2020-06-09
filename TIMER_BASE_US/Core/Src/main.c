@@ -14,7 +14,7 @@ TIM_HandleTypeDef htimer3;
 int main(void){
 
 	HAL_Init();
-	SystemClock_Config(SYS_CLOCK_FREQ_48_MHZ);
+	SystemClock_Config(SYS_CLOCK_FREQ_64_MHZ);
 	GPIO_Init();
 	TIMER3_Init();
 
@@ -112,7 +112,7 @@ void SystemClock_Config(uint8_t clock_freq){
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);	// 50KHz square wave
 
 }
 
@@ -152,10 +152,10 @@ void TIMER3_Init(void){
  	 * That's why you should increase or decrease the prescaler value.
  	 * */
 
-	/* Create a time base for 10us with SYSCLK = 48MHz */
+	/* Create a time base for 10us with SYSCLK = 64MHz */
 	htimer3.Instance = TIM3;
-	htimer3.Init.Prescaler = 9;
-	htimer3.Init.Period = 48-1;	// The update event happens after one time gap or one time period
+	htimer3.Init.Prescaler = 16;
+	htimer3.Init.Period = 40-1;	// The update event happens after one time gap or one time period
 
 	if(HAL_TIM_Base_Init(&htimer3) != HAL_OK){
 		Error_Handler();

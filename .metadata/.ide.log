@@ -19650,3 +19650,61 @@
 2020-06-08 21:40:49,689 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 4128mS.
 2020-06-08 21:40:49,693 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 4mS.
 2020-06-08 21:40:49,696 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-06-08 23:53:56,340 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-08 23:53:56,424 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-08 23:53:56,425 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-08 23:53:56,427 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-08 23:53:56,429 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 789067296 Bytes (911212544)
+2020-06-08 23:53:56,430 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-08 23:53:56,430 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-08 23:53:56,430 [INFO] OpenFileManager:274 - Change cursor
+2020-06-08 23:53:56,438 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
+2020-06-08 23:53:57,499 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 467561808 Bytes (911212544)
+2020-06-08 23:53:57,560 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-06-08 23:53:57,560 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.7.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.2.0
+2020-06-08 23:53:57,561 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-06-08 23:53:57,625 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-08 23:53:57,626 [INFO] PinOutPanel:1399 - setPackage(STM32F103T6Ux,VFQFPN36)
+2020-06-08 23:53:57,814 [INFO] UtilMem:74 - Before build in PCC Used Memory: 553840832 Bytes (911212544)
+2020-06-08 23:53:57,913 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/mateu/.stm32cubemx/plugins/power
+2020-06-08 23:53:57,913 [INFO] UtilMem:74 - After build in PCC Used Memory: 561180864 Bytes (911212544)
+2020-06-08 23:53:57,925 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,925 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,926 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,928 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,929 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,929 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,930 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,930 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-08 23:53:57,956 [INFO] OpenFileManager:294 - Restore cursor
+2020-06-09 00:10:02,029 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 633561648 Bytes (911212544)
+2020-06-09 10:53:59,890 [INFO] Activator:176 - 
+
+
+2020-06-09 10:53:59,894 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-09 13:40:19,614 [INFO] Activator:176 - 
+
+
+2020-06-09 13:40:19,618 [INFO] Activator:177 - !SESSION log4j initialized
