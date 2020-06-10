@@ -279,7 +279,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
  8000260:	af00      	add	r7, sp, #0
  8000262:	6078      	str	r0, [r7, #4]
 
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);	// 50KHz square wave
  8000264:	2104      	movs	r1, #4
  8000266:	4803      	ldr	r0, [pc, #12]	; (8000274 <HAL_TIM_PeriodElapsedCallback+0x18>)
  8000268:	f000 fbfe 	bl	8000a68 <HAL_GPIO_TogglePin>
@@ -357,14 +357,14 @@ void TIMER3_Init(void){
  	 * That's why you should increase or decrease the prescaler value.
  	 * */
 
-	/* Create a time base for 10us with SYSCLK = 48MHz */
+	/* Create a time base for 10us with SYSCLK = 64MHz */
 	htimer3.Instance = TIM3;
  80002d0:	4b09      	ldr	r3, [pc, #36]	; (80002f8 <TIMER3_Init+0x2c>)
  80002d2:	4a0a      	ldr	r2, [pc, #40]	; (80002fc <TIMER3_Init+0x30>)
  80002d4:	601a      	str	r2, [r3, #0]
-	htimer3.Init.Prescaler = 16;
+	htimer3.Init.Prescaler = 15;
  80002d6:	4b08      	ldr	r3, [pc, #32]	; (80002f8 <TIMER3_Init+0x2c>)
- 80002d8:	2210      	movs	r2, #16
+ 80002d8:	220f      	movs	r2, #15
  80002da:	605a      	str	r2, [r3, #4]
 	htimer3.Init.Period = 40-1;	// The update event happens after one time gap or one time period
  80002dc:	4b06      	ldr	r3, [pc, #24]	; (80002f8 <TIMER3_Init+0x2c>)

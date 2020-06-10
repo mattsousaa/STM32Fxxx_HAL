@@ -63,14 +63,14 @@ void TIMER3_Init(void){
 	 * Period value is stored in TIMx_ARR register (16 bits - MAX 65535);
 	 * Choose a clock value for your microcontroller in the spreadsheet (TIMx_CLK);
 	 * Choose a time base required in seconds in the spreadsheet;
-	 * Check if the TIMER Count Clock (CNT_CLK) exceeded the maximum value of TIMx_ARR register (16 bits - MAX 65535);
-	 * If yes, increase or decrease the prescaler in the spreedsheet until 0 < CNT_CLK <= 65535;
- 	 * This process will find how many ticks there exists for every period of clock;
- 	 * For instance, if TIMx_CLK = 16MHz and prescaler = 0, so for every 0.0625us a tick happens;
- 	 * In this case, what is the period value must be configured to get the time base of 100ms?;
- 	 * This math results in 1600000 and should be placed in TIMx_ARR register, but this value is greater than 65535;
- 	 * That's why you should increase or decrease the prescaler value.
- 	 * */
+	 * Check if the period exceeded the maximum value of TIMx_ARR register (16 bits - MAX 65535);
+	 * If yes, increase or decrease the prescaler in the spreedsheet until 0 < TIMx_ARR <= 65535;
+	 * This process will find how many ticks there exists for every period of clock;
+	 * For instance, if TIMx_CLK = 16MHz and prescaler = 0, so for every 0.0625us a tick happens;
+	 * In this case, what is the period value must be configured to get the time base of 100ms?;
+	 * This math results in 1600000 and should be placed in TIMx_ARR register, but this value is greater than 65535;
+	 * That's why you should increase or decrease the prescaler value.
+	 * */
 
 	/* Create a time base for 1s with SYSCLK = 8MHz */
 	htimer3.Instance = TIM3;

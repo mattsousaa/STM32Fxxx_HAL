@@ -32,7 +32,7 @@ int main(void){
 
 	MX_USART2_UART_Init();
 
-	//HAL_TIM_Base_Start_IT(&htimer3);
+	//HAL_TIM_Base_Start_IT(&htimer3); // You can use this signal in PA1
 
 	if(HAL_TIM_IC_Start_IT(&htimer2, TIM_CHANNEL_2) != HAL_OK){
 		Error_Handler();
@@ -198,7 +198,7 @@ void TIMER3_Init(void){
 
 	/* Create a time base for 10us with SYSCLK = 64MHz */
 	htimer3.Instance = TIM3;
-	htimer3.Init.Prescaler = 16;
+	htimer3.Init.Prescaler = 15;
 	htimer3.Init.Period = 40-1;	// The update event happens after one time gap or one time period
 
 	if(HAL_TIM_Base_Init(&htimer3) != HAL_OK){
@@ -227,6 +227,7 @@ void Frequency_Calculation(void){
 	user_signal_freq = 1/user_signal_time_period; // Desired frequency
 
 	memset(usr_msg,0,sizeof(usr_msg));
+	// Put the command "-u _printf_float" in MCU GCC Linker (Miscellaneous)
 	sprintf(usr_msg, "Frequency of the signal applied = %.2f Hz\r\n", user_signal_freq);
 	HAL_UART_Transmit(&huart2, (uint8_t*)usr_msg, strlen(usr_msg), HAL_MAX_DELAY);
 

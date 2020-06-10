@@ -143,8 +143,8 @@ void TIMER3_Init(void){
 	 * Period value is stored in TIMx_ARR register (16 bits - MAX 65535);
 	 * Choose a clock value for your microcontroller in the spreadsheet (TIMx_CLK);
 	 * Choose a time base required in seconds in the spreadsheet;
-	 * Check if the TIMER Count Clock (CNT_CLK) exceeded the maximum value of TIMx_ARR register (16 bits - MAX 65535);
-	 * If yes, increase or decrease the prescaler in the spreedsheet until 0 < CNT_CLK <= 65535;
+	 * Check if the period exceeded the maximum value of TIMx_ARR register (16 bits - MAX 65535);
+	 * If yes, increase or decrease the prescaler in the spreedsheet until 0 < TIMx_ARR <= 65535;
  	 * This process will find how many ticks there exists for every period of clock;
  	 * For instance, if TIMx_CLK = 16MHz and prescaler = 0, so for every 0.0625us a tick happens;
  	 * In this case, what is the period value must be configured to get the time base of 100ms?;
@@ -154,7 +154,7 @@ void TIMER3_Init(void){
 
 	/* Create a time base for 10us with SYSCLK = 64MHz */
 	htimer3.Instance = TIM3;
-	htimer3.Init.Prescaler = 16;
+	htimer3.Init.Prescaler = 15;
 	htimer3.Init.Period = 40-1;	// The update event happens after one time gap or one time period
 
 	if(HAL_TIM_Base_Init(&htimer3) != HAL_OK){
