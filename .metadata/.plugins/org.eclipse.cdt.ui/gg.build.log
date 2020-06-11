@@ -1,0 +1,23 @@
+20:40:52 **** Incremental Build of configuration Debug for project gg ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "gg.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\gg\STM32F401CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="gg.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: gg.elf
+ 
+arm-none-eabi-objdump -h -S  gg.elf  > "gg.list"
+arm-none-eabi-objcopy  -O ihex  gg.elf  "gg.hex"
+arm-none-eabi-objcopy  -O binary  gg.elf  "gg.bin"
+arm-none-eabi-size   gg.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10524	     36	   1700	  12260	   2fe4	gg.elf
+Finished building: default.size.stdout
+ 
+Finished building: gg.bin
+Finished building: gg.hex
+Finished building: gg.list
+ 
+ 
+ 
+
+20:40:55 Build Finished. 0 errors, 0 warnings. (took 3s.350ms)
+

@@ -1,0 +1,7 @@
+main.c:23:5:main	8	static
+main.c:51:6:SystemClock_Config	80	static
+main.c:138:6:GPIO_Init	32	static
+main.c:158:6:TIMER3_Init	40	static
+main.c:195:6:HAL_TIM_OC_DelayElapsedCallback	16	static
+main.c:223:6:MX_USART2_UART_Init	8	static
+main.c:238:6:Error_Handler	4	static

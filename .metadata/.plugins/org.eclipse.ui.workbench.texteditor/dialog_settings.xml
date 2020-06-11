@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="HAL_TIM_MODULE_ENABLED"/>
+		<item key="selection" value="HAL_TIM_OC_DelayElapsedCallback"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="HAL_TIM_MODULE_ENABLED"/>
-			<item value="HAL_TIM_IC_MspInit"/>
-			<item value="TIM_Input_Capture_Polarity"/>
-			<item value="TIM_Input_Channel_Polarity"/>
-			<item value="RCC_MCO1"/>
-			<item value="tim2_irq"/>
-			<item value="GPIO_mode_define"/>
-			<item value="HAL_TIM_IC_Init"/>
-			<item value="HAL_TIM_IC_ConfigChannel"/>
-			<item value="TIM_Input_Capture_Selection"/>
-			<item value="TIM_Counter_Mode"/>
-			<item value="IRQ"/>
-			<item value="TIM3_IRQHandler"/>
-			<item value="HAL_TIM_Base_Start"/>
-			<item value="#define HAL_TIM_MODULE_ENABLED"/>
+			<item value="HAL_TIM_OC_DelayElapsedCallback"/>
+			<item value="TIMER1"/>
+			<item value="TIMER2"/>
+			<item value="htimer1"/>
+			<item value="htimer2"/>
+			<item value="TIM_Output_Compare_Polarity"/>
+			<item value="TIM_Output_Compare_and_PWM_modes"/>
+			<item value="TIM_Output_Compare_N_Polarity"/>
+			<item value="htimer3"/>
+			<item value="TIMER3"/>
+			<item value="pulse4_value"/>
+			<item value="TIM2"/>
+			<item value="HAL_TIM_OC_delay"/>
+			<item value="HAL_TIM_OC_MspInit"/>
+			<item value="HAL_TIM_OC_Init"/>
 		</list>
 		<list key="replacehistory">
+			<item value="TIMER3"/>
+			<item value="htimer3"/>
+			<item value="TIMER1"/>
+			<item value="htimer1"/>
+			<item value="htimer2"/>
+			<item value="TIMER2"/>
+			<item value="TIM3"/>
 			<item value="clk_init"/>
 			<item value="osc_init"/>
 			<item value="GPIO_pins_define"/>
