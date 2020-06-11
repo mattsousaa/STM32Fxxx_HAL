@@ -149,7 +149,7 @@ void GPIO_Init(void){
 void TIMER2_Init(void){
 
 	TIM_OC_InitTypeDef tim2PWM_Config;
-	/* First of all you have to decide a time period of the signal adjusting the period and prescaler;
+	/* Firt of all you have to decide a time period of the signal adjusting the period and prescaler;
 	 * Enter with time clock frequency of microcontroller and time base required;
 	 * Adjust the prescaler if you need;
 	 * In this example, I decided to make a time period of 10ms as you can se in the configurations below;
