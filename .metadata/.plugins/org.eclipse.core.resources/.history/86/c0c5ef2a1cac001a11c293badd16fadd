@@ -11,14 +11,8 @@ void Error_Handler(void);
 TIM_HandleTypeDef htimer2;
 UART_HandleTypeDef huart2;
 
-
-/* TIM_CNT_CLK = 64MHz
- * Use the spreadsheet to find these values;
- * Put the desired frequency and the counter clock (pay attention in prescaler value);
- * Put the value of Pulse in tim3OC_init.Pulse; This value will be store in CCR1 register;
- * When the CCR1 value matches with counter timer, so the channel toggles;
- * For this, you must add the pulse value in CCR1 to make a square wave.
- * */
+// TIM_CNT_CLK = 64MHz
+// Use the spreadsheet to find these values
 volatile uint32_t pulse1_value = 640000; // 500Hz
 volatile uint32_t pulse2_value = 32000;  // 1kHz
 volatile uint32_t pulse3_value = 16000;  // 2kHz
@@ -204,25 +198,25 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim){
 	/* TIM3_CH1 toggling with frequency = 500 Hz */
 	if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1){
 		ccr_content = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
-		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_1, ccr_content+pulse1_value);	//Adding value to next toggling in CCR1
+		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_1, ccr_content+pulse1_value);	//Adding value to next toggling
 	}
 
 	/* TIM3_CH2 toggling with frequency = 1000 Hz */
 	if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2){
 		ccr_content = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_2);
-		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_2, ccr_content+pulse2_value);	//Adding value to next toggling in CCR1
+		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_2, ccr_content+pulse2_value);
 	}
 
 	/* TIM3_CH3 toggling with frequency = 2000 Hz */
 	if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3){
 		ccr_content = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_3);
-		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_3, ccr_content+pulse3_value);	//Adding value to next toggling in CCR1
+		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_3, ccr_content+pulse3_value);
 	}
 
 	/* TIM3_CH4 toggling with frequency = 4000 Hz */
 	if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4){
 		ccr_content = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
-		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_4, ccr_content+pulse4_value);	//Adding value to next toggling in CCR1
+		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_4, ccr_content+pulse4_value);
 	}
 }
 
