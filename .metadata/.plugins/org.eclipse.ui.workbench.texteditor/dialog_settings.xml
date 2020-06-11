@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="TIM_Counter_Mode"/>
+		<item key="selection" value="htimer2"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="htimer3"/>
 			<item value="TIM_Counter_Mode"/>
 			<item value="HAL_TIM_PWM_MspInit"/>
 			<item value="HAL_TIM_PWM_Init"/>
@@ -19,17 +20,16 @@
 			<item value="TIM_Output_Compare_Polarity"/>
 			<item value="TIM_Output_Compare_and_PWM_modes"/>
 			<item value="TIM_Output_Compare_N_Polarity"/>
-			<item value="htimer3"/>
 			<item value="TIMER3"/>
 			<item value="pulse4_value"/>
 			<item value="TIM2"/>
 		</list>
 		<list key="replacehistory">
+			<item value="htimer2"/>
 			<item value="TIMER3"/>
 			<item value="htimer3"/>
 			<item value="TIMER1"/>
 			<item value="htimer1"/>
-			<item value="htimer2"/>
 			<item value="TIMER2"/>
 			<item value="TIM3"/>
 			<item value="clk_init"/>
