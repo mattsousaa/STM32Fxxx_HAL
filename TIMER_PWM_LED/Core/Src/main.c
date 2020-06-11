@@ -29,7 +29,7 @@ int main(void){
 		while(brightness < htimer2.Init.Period){
 			brightness++;
 			__HAL_TIM_SET_COMPARE(&htimer2, TIM_CHANNEL_2, brightness);
-			HAL_Delay(1);
+			HAL_Delay(1); // Slow down the processor here (The timer is running at 6400000Hz)
 		}
 
 		while(brightness > 0){
