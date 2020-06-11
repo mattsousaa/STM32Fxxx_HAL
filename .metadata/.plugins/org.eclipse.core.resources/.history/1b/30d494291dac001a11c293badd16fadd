@@ -17,7 +17,8 @@ UART_HandleTypeDef huart2;
  * Put the desired frequency and the counter clock (pay attention in prescaler value);
  * Put the value of Pulse in tim3OC_init.Pulse; This value will be store in CCR1 register;
  * When the CCR1 value matches with counter timer, so the channel toggles;
- * For this, you must add the pulse value in CCR1 to make a square wave. */
+ * For this, you must add the pulse value in CCR1 to make a square wave.
+ * */
 volatile uint32_t pulse1_value = 640000; // 500Hz
 volatile uint32_t pulse2_value = 32000;  // 1kHz
 volatile uint32_t pulse3_value = 16000;  // 2kHz
