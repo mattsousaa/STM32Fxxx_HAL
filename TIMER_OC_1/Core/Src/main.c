@@ -4,12 +4,11 @@
 #include "stm32f1xx_hal_tim.h"
 
 void SystemClock_Config(uint8_t clock_freq);
-void MX_USART2_UART_Init(void);
 void TIMER3_Init(void);
 void GPIO_Init(void);
 void Error_Handler(void);
 
-TIM_HandleTypeDef htimer3;
+TIM_HandleTypeDef htimer2;
 UART_HandleTypeDef huart2;
 
 // TIM_CNT_CLK = 64MHz
@@ -27,19 +26,19 @@ int main(void){
 	GPIO_Init();
 	TIMER3_Init();
 
-	if(HAL_TIM_OC_Start_IT(&htimer3, TIM_CHANNEL_2) != HAL_OK){
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_1) != HAL_OK){
 		Error_Handler();
 	}
 
-	if(HAL_TIM_OC_Start_IT(&htimer3, TIM_CHANNEL_2) != HAL_OK){
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_2) != HAL_OK){
 		Error_Handler();
 	}
 
-	if(HAL_TIM_OC_Start_IT(&htimer3, TIM_CHANNEL_3) != HAL_OK){
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_3) != HAL_OK){
 		Error_Handler();
 	}
 
-	if(HAL_TIM_OC_Start_IT(&htimer3, TIM_CHANNEL_4) != HAL_OK){
+	if(HAL_TIM_OC_Start_IT(&htimer2, TIM_CHANNEL_4) != HAL_OK){
 		Error_Handler();
 	}
 
@@ -132,7 +131,6 @@ void SystemClock_Config(uint8_t clock_freq){
 	/* SysTick_IRQn interrupt configuration */
 	HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
 
-
 }
 
 void GPIO_Init(void){
@@ -159,34 +157,36 @@ void TIMER3_Init(void){
 
 	TIM_OC_InitTypeDef tim3OC_init;
 
-	htimer3.Instance = TIM3;
-	htimer3.Init.Period = 0xFFFF;
-	htimer3.Init.Prescaler = 0;
+	htimer2.Instance = TIM2;
+	htimer2.Init.Period = 0xFFFF;
+	htimer2.Init.Prescaler = 0;
 
-	if(HAL_TIM_OC_Init(&htimer3) != HAL_OK){
+	if(HAL_TIM_OC_Init(&htimer2) != HAL_OK){
 		Error_Handler();
 	}
+
+	memset(&tim3OC_init, 0, sizeof(tim3OC_init));
 
 	tim3OC_init.OCMode = TIM_OCMODE_TOGGLE;
 	tim3OC_init.OCNPolarity = TIM_OCPOLARITY_HIGH;
 	tim3OC_init.Pulse = pulse1_value;
 
-	if(HAL_TIM_OC_ConfigChannel(&htimer3, &tim3OC_init, TIM_CHANNEL_1) != HAL_OK){
+	if(HAL_TIM_OC_ConfigChannel(&htimer2, &tim3OC_init, TIM_CHANNEL_1) != HAL_OK){
 		Error_Handler();
 	}
 
 	tim3OC_init.Pulse  = pulse2_value;
-	if(HAL_TIM_OC_ConfigChannel(&htimer3, &tim3OC_init, TIM_CHANNEL_2) != HAL_OK){
+	if(HAL_TIM_OC_ConfigChannel(&htimer2, &tim3OC_init, TIM_CHANNEL_2) != HAL_OK){
 		Error_Handler();
 	}
 
 	tim3OC_init.Pulse  = pulse3_value;
-	if(HAL_TIM_OC_ConfigChannel(&htimer3, &tim3OC_init, TIM_CHANNEL_3) != HAL_OK){
+	if(HAL_TIM_OC_ConfigChannel(&htimer2, &tim3OC_init, TIM_CHANNEL_3) != HAL_OK){
 		Error_Handler();
 	}
 
 	tim3OC_init.Pulse  = pulse4_value;
-	if(HAL_TIM_OC_ConfigChannel(&htimer3, &tim3OC_init, TIM_CHANNEL_4) != HAL_OK){
+	if(HAL_TIM_OC_ConfigChannel(&htimer2, &tim3OC_init, TIM_CHANNEL_4) != HAL_OK){
 		Error_Handler();
 	}
 
@@ -217,21 +217,6 @@ void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim){
 		ccr_content = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_4);
 		__HAL_TIM_SET_COMPARE(htim, TIM_CHANNEL_4, ccr_content+pulse4_value);
 	}
-}
-
-void MX_USART2_UART_Init(void){
-
-	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 115200;
-	huart2.Init.WordLength = UART_WORDLENGTH_8B;
-	huart2.Init.StopBits = UART_STOPBITS_1;
-	huart2.Init.Parity = UART_PARITY_NONE;
-	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-	huart2.Init.Mode = UART_MODE_TX;
-
-	if(HAL_UART_Init(&huart2) != HAL_OK){
-		Error_Handler();
-  	}
 }
 
 void Error_Handler(void){
