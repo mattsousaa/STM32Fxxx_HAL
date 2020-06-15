@@ -25,6 +25,8 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan){
 	PA11     ------> CAN1_RX
 	PA12     ------> CAN1_TX
 	*/
+
+	// CAN transceiver SN65HVD230
 	GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
