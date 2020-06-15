@@ -33,7 +33,7 @@ int main(void){
 
 	/* In order to do the normal operation of Tx and Rx, CAN has to be in normal mode;
 	 * This is according to the controller state machine in the reference manual;
-	 * This function move the CAN controller from initialization mode to the normal mode. */
+	 * This function moves the CAN controller from initialization mode to the normal mode. */
 	if(HAL_CAN_Start(&hcan1) != HAL_OK){
 		Error_handler();
 	}
