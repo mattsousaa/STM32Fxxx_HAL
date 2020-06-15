@@ -148,8 +148,8 @@ void CAN1_Tx(void){
 
 	TxHeader.DLC = 5;				/* Specifies the length of the frame that will be transmitted */
 	TxHeader.StdId = 0x65D;			/* Specifies the standard identifier */
-	TxHeader.IDE = CAN_ID_STD;		/* Specifies the type of identifier for the message that will be transmitted */
-	TxHeader.RTR = CAN_RTR_DATA;	/* Specifies the type of frame for the message that will be transmitted */
+	TxHeader.IDE = CAN_ID_STD;		/* Specifies the type of identifier for the message that will be transmitted - 11 bits */
+	TxHeader.RTR = CAN_RTR_DATA;	/* Specifies the type of frame for the message that will be transmitted - Data frame*/
 
 	if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, our_message, &TxMailbox) != HAL_OK){
 		Error_handler();
@@ -157,7 +157,7 @@ void CAN1_Tx(void){
 
 	while(HAL_CAN_IsTxMessagePending(&hcan1, TxMailbox));
 
-	sprintf(msg,"Message Transmitted\r\n");
+	sprintf(msg, "Message Transmitted\r\n");
 
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
@@ -187,12 +187,12 @@ void CAN1_Init(void){
 
 	hcan1.Instance = CAN1;
 	hcan1.Init.Mode = CAN_MODE_LOOPBACK;
-	hcan1.Init.AutoBusOff = ENABLE;
-	hcan1.Init.AutoRetransmission = ENABLE;
+	hcan1.Init.AutoBusOff = DISABLE;
+	hcan1.Init.AutoRetransmission = ENABLE;		// No need for CAN loopback
 	hcan1.Init.AutoWakeUp = DISABLE;
-	hcan1.Init.ReceiveFifoLocked = DISABLE;
+	hcan1.Init.ReceiveFifoLocked = DISABLE;		// See CAN master control register (CAN_MCR) - bit 3
 	hcan1.Init.TimeTriggeredMode = DISABLE;
-	hcan1.Init.TransmitFifoPriority = DISABLE;
+	hcan1.Init.TransmitFifoPriority = DISABLE;	// See CAN master control register (CAN_MCR) - bit 2
 
 	// Settings related to CAN bit timings
 	// http://www.bittiming.can-wiki.info/

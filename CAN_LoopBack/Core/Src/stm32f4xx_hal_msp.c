@@ -15,6 +15,25 @@ void HAL_MspInit(void){
 	HAL_NVIC_SetPriority(UsageFault_IRQn,0,0);
 }
 
+void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan){
+
+	GPIO_InitTypeDef GPIO_InitStruct;
+
+	__HAL_RCC_CAN1_CLK_ENABLE();
+
+	/**CAN1 GPIO Configuration
+	PA11     ------> CAN1_RX
+	PA12     ------> CAN1_TX
+	*/
+	GPIO_InitStruct.Pin = GPIO_PIN_11|GPIO_PIN_12;
+	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+	GPIO_InitStruct.Alternate = GPIO_AF9_CAN1;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+}
+
  void HAL_UART_MspInit(UART_HandleTypeDef *huart){
 
 	 GPIO_InitTypeDef gpio_uart;
@@ -26,16 +45,16 @@ void HAL_MspInit(void){
 
 	 //2 . Do the pin muxing configurations
 	 gpio_uart.Pin = GPIO_PIN_2;
-	 gpio_uart.Mode =GPIO_MODE_AF_PP;
+	 gpio_uart.Mode = GPIO_MODE_AF_PP;
 	 gpio_uart.Pull = GPIO_PULLUP;
 	 gpio_uart.Speed = GPIO_SPEED_FREQ_LOW;
-	 gpio_uart.Alternate =  GPIO_AF7_USART2; //UART2_TX
-	 HAL_GPIO_Init(GPIOA,&gpio_uart);
+	 gpio_uart.Alternate = GPIO_AF7_USART2; //UART2_TX
+	 HAL_GPIO_Init(GPIOA, &gpio_uart);
 
 	 gpio_uart.Pin = GPIO_PIN_3; //UART2_RX
-	 HAL_GPIO_Init(GPIOA,&gpio_uart);
+	 HAL_GPIO_Init(GPIOA, &gpio_uart);
 	 //3 . Enable the IRQ and set up the priority (NVIC settings )
 	 HAL_NVIC_EnableIRQ(USART2_IRQn);
-	 HAL_NVIC_SetPriority(USART2_IRQn,15,0);
+	 HAL_NVIC_SetPriority(USART2_IRQn, 15, 0);
 
 }
