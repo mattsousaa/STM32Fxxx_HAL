@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 CAN_LoopBack.list \
 
+OBJCOPY_HEX += \
+CAN_LoopBack.hex \
+
 OBJCOPY_BIN += \
 CAN_LoopBack.bin \
 
@@ -55,6 +58,11 @@ CAN_LoopBack.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CAN_LoopBack.hex: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "CAN_LoopBack.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 CAN_LoopBack.bin: $(EXECUTABLES)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "CAN_LoopBack.bin"
 	@echo 'Finished building: $@'
@@ -65,7 +73,7 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

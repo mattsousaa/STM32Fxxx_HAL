@@ -10,6 +10,7 @@ void SystemClock_Config_HSE(uint8_t clock_freq);
 void CAN1_Init(void);
 void CAN1_Tx(void);
 void CAN1_Rx(void);
+void CAN_Filter_Config(void);
 
 UART_HandleTypeDef huart2;
 CAN_HandleTypeDef hcan1;
@@ -26,11 +27,20 @@ int main(void){
 
 	CAN1_Init();
 
+	/* In order to config the CAN filter configuration, you need to do the initialization of this function before CAN Start;
+	 * That's why because CAN Start actually leaves the initialization mode.  */
+	CAN_Filter_Config();
+
+	/* In order to do the normal operation of Tx and Rx, CAN has to be in normal mode;
+	 * This is according to the controller state machine in the reference manual;
+	 * This function move the CAN controller from initialization mode to the normal mode. */
 	if(HAL_CAN_Start(&hcan1) != HAL_OK){
 		Error_handler();
 	}
 
 	CAN1_Tx();
+
+	CAN1_Rx();
 
 	while(1);
 
@@ -161,6 +171,82 @@ void CAN1_Tx(void){
 
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 
+}
+
+void CAN1_Rx(void){
+
+	CAN_RxHeaderTypeDef RxHeader;
+	uint8_t rcvd_msg[5];
+
+	char msg[50];
+
+	//we are waiting for at least one message in to the RX FIFO0
+	while(! HAL_CAN_GetRxFifoFillLevel(&hcan1, CAN_RX_FIFO0));
+
+	if(HAL_CAN_GetRxMessage(&hcan1, CAN_RX_FIFO0, &RxHeader, rcvd_msg) != HAL_OK){
+		Error_handler();
+	}
+
+	sprintf(msg, "Message Received\r\n");
+
+	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
+
+}
+
+void CAN_Filter_Config(void){
+
+	CAN_FilterTypeDef can1_filter_init;
+
+	/* Examples:
+	 *
+	 * Accept frames only if first 3 MSBs of the standard identifier are 0s and last 2 LSBs are 1s;
+	 * Standard identifier = 0x65D = 0110 0101 1101;
+	 * Mask mode: Use ID register and masking register;
+	 * Mask register: STID[10:3] = 111xxxxx and STID[2:0] = 11x;
+	 * The filter banking will reject this frame.
+	 *
+	 * Accept frames only if first 3 MSBs of the standard identifier are 1s;
+	 * Standard identifier = 0x65D = 0110 0101 1101;
+	 * Mask mode: Use ID register and masking register;
+	 * Mask register: STID[10:3] = 111xxxxx;
+	 * The filter banking will reject this frame.
+	 *
+	 * Accept frames only if standard identifier value is exactly 0x65D or 0x651;
+	 * Standard identifier = 0x65D = 0110 0101 1101;
+	 * List/ID mode: Use 2 identifier registers;
+	 * Identifier register 1 = 0x65D (if match, the frame will be allowed, if it's not, then check the Identifier register 2);
+	 * Identifier register 2 = 0x651;
+	 * The filter banking will accept this frame.
+	 *
+	 * Accept only request frames;
+	 * Mask mode: Use ID register and masking register;
+	 * Mask register: RTR = 1;
+	 * When a frame is received the RTR bit will be checked in Identifier register.
+	 *
+	 * Accept only extended ID frames;
+	 * Mask mode: Use ID register and masking register;
+	 * Mask register: IDE = 1;
+	 * When a frame is received the IDE bit will be checked in Identifier register.
+	 *
+	 * Accept all frames (below configuration):
+	 * You need not to do the configuration filter at all;
+	 * Just make sure to which FIFO the message should go;
+	 * Make all as 0, so none of the bits will be compared with the packet frame received.
+	 **/
+
+	can1_filter_init.FilterActivation = ENABLE;
+	can1_filter_init.FilterBank = 0;
+	can1_filter_init.FilterFIFOAssignment = CAN_RX_FIFO0;
+	can1_filter_init.FilterIdHigh = 0x0000;
+	can1_filter_init.FilterIdLow = 0x0000;
+	can1_filter_init.FilterMaskIdHigh = 0x0000;
+	can1_filter_init.FilterMaskIdLow = 0x0000;
+	can1_filter_init.FilterMode = CAN_FILTERMODE_IDMASK;
+	can1_filter_init.FilterScale = CAN_FILTERSCALE_32BIT;
+
+	if(HAL_CAN_ConfigFilter(&hcan1, &can1_filter_init) != HAL_OK){
+		Error_handler();
+	}
 }
 
 void UART2_Init(void){

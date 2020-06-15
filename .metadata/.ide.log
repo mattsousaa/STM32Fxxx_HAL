@@ -23888,3 +23888,9 @@
 
 
 2020-06-14 22:09:31,119 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-15 15:33:24,936 [INFO] Activator:176 - 
+
+
+2020-06-15 15:33:24,941 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-15 15:34:02,156 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
+2020-06-15 15:34:02,159 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
