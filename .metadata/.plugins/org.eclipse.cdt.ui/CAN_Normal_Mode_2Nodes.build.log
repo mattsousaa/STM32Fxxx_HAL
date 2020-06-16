@@ -1,0 +1,26 @@
+12:16:56 **** Build of configuration Debug for project CAN_Normal_Mode_2Nodes ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:24:1: error: unknown type name 'TIM_HandleTypeDef'; did you mean 'CAN_HandleTypeDef'?
+ TIM_HandleTypeDef htimer6;
+ ^~~~~~~~~~~~~~~~~
+ CAN_HandleTypeDef
+../Core/Src/main.c: In function 'TIMER6_Init':
+../Core/Src/main.c:288:9: error: request for member 'Instance' in something not a structure or union
+  htimer6.Instance = TIM6;
+         ^
+../Core/Src/main.c:289:9: error: request for member 'Init' in something not a structure or union
+  htimer6.Init.Prescaler = 4999;
+         ^
+../Core/Src/main.c:290:9: error: request for member 'Init' in something not a structure or union
+  htimer6.Init.Period = 10000-1;
+         ^
+../Core/Src/main.c:291:5: warning: implicit declaration of function 'HAL_TIM_Base_Init'; did you mean 'HAL_MspDeInit'? [-Wimplicit-function-declaration]
+  if(HAL_TIM_Base_Init(&htimer6) != HAL_OK){
+     ^~~~~~~~~~~~~~~~~
+     HAL_MspDeInit
+make: *** [Core/Src/subdir.mk:33: Core/Src/main.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+12:16:57 Build Failed. 5 errors, 1 warnings. (took 1s.399ms)
+
