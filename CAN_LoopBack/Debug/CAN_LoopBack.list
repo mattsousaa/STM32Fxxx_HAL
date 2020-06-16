@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  0002000c  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00008827  00000000  00000000  0002003c  2**0
+ 12 .debug_info   00008828  00000000  00000000  0002003c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00001523  00000000  00000000  00028863  2**0
+ 13 .debug_abbrev 0000150b  00000000  00000000  00028864  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00000768  00000000  00000000  00029d88  2**3
+ 14 .debug_aranges 00000768  00000000  00000000  00029d70  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 000006b0  00000000  00000000  0002a4f0  2**3
+ 15 .debug_ranges 000006b0  00000000  00000000  0002a4d8  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0002137f  00000000  00000000  0002aba0  2**0
+ 16 .debug_macro  0002137f  00000000  00000000  0002ab88  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00006810  00000000  00000000  0004bf1f  2**0
+ 17 .debug_line   00006814  00000000  00000000  0004bf07  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000c9d8c  00000000  00000000  0005272f  2**0
+ 18 .debug_str    000c9d8c  00000000  00000000  0005271b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0011c4bb  2**0
+ 19 .comment      0000007b  00000000  00000000  0011c4a7  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00001dc8  00000000  00000000  0011c538  2**2
+ 20 .debug_frame  00001dc8  00000000  00000000  0011c524  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -395,7 +395,7 @@ int main(void){
 
 	/* In order to do the normal operation of Tx and Rx, CAN has to be in normal mode;
 	 * This is according to the controller state machine in the reference manual;
-	 * This function move the CAN controller from initialization mode to the normal mode. */
+	 * This function moves the CAN controller from initialization mode to the normal mode. */
 	if(HAL_CAN_Start(&hcan1) != HAL_OK){
  8000532:	4806      	ldr	r0, [pc, #24]	; (800054c <main+0x38>)
  8000534:	f000 fd02 	bl	8000f3c <HAL_CAN_Start>
@@ -981,22 +981,24 @@ void CAN1_Init(void){
  80008a8:	4b0c      	ldr	r3, [pc, #48]	; (80008dc <CAN1_Init+0x64>)
  80008aa:	2200      	movs	r2, #0
  80008ac:	775a      	strb	r2, [r3, #29]
+	// Visit http://www.bittiming.can-wiki.info/
+	// Bit Rate (Bits/s) = 500kbps (2us) and number of time quanta = 10;
+	// One bit = Sync + (Prop_Seg + Phase_Seg1) + Seg2 = 10;
+	// (Prop_Seg + Phase_Seg1) = Seg1;
 
-	// Settings related to CAN bit timings
-	// http://www.bittiming.can-wiki.info/
 	hcan1.Init.Prescaler = 5;
  80008ae:	4b0b      	ldr	r3, [pc, #44]	; (80008dc <CAN1_Init+0x64>)
  80008b0:	2205      	movs	r2, #5
  80008b2:	605a      	str	r2, [r3, #4]
-	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;	//1 quantum
+	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;		// 1 time quantum as default (to complete 10 time quanta)
  80008b4:	4b09      	ldr	r3, [pc, #36]	; (80008dc <CAN1_Init+0x64>)
  80008b6:	2200      	movs	r2, #0
  80008b8:	60da      	str	r2, [r3, #12]
-	hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;
+	hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;			// 8 time quantum
  80008ba:	4b08      	ldr	r3, [pc, #32]	; (80008dc <CAN1_Init+0x64>)
  80008bc:	f44f 22e0 	mov.w	r2, #458752	; 0x70000
  80008c0:	611a      	str	r2, [r3, #16]
-	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
+	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;			// 1 time quantum
  80008c2:	4b06      	ldr	r3, [pc, #24]	; (80008dc <CAN1_Init+0x64>)
  80008c4:	2200      	movs	r2, #0
  80008c6:	615a      	str	r2, [r3, #20]
@@ -1017,6 +1019,9 @@ void CAN1_Init(void){
  80008e0:	40006400 	.word	0x40006400
 
 080008e4 <HAL_MspInit>:
+ *      Author: Mateus Sousa
+ */
+
 #include "main.h"
 
 void HAL_MspInit(void){
@@ -1205,6 +1210,9 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan){
  8000a0c:	40020000 	.word	0x40020000
 
 08000a10 <SysTick_Handler>:
+ *      Author: Mateus Sousa
+ */
+
 #include "main.h"
 
 void SysTick_Handler (void){

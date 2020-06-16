@@ -1,3 +1,10 @@
+/*
+ * main.c
+ *
+ *  Created on: 03 de Junho de 2020
+ *      Author: Mateus Sousa
+ */
+
 #include <string.h>
 #include <stdio.h>
 #include "main.h"
