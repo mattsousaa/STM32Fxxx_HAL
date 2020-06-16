@@ -281,11 +281,15 @@ void CAN1_Init(void){
 	hcan1.Init.TransmitFifoPriority = DISABLE;	// See CAN master control register (CAN_MCR) - bit 2
 
 	// Settings related to CAN bit timings
-	// http://www.bittiming.can-wiki.info/
+	// Visit http://www.bittiming.can-wiki.info/
+	// Bit Rate (Bits/s) = 500kbps (2us) and number of time quanta = 10;
+	// One bit = Sync + (Prop_Seg + Phase_Seg1) + Seg2 = 10;
+	// (Prop_Seg + Phase_Seg1) = Seg1;
+
 	hcan1.Init.Prescaler = 5;
-	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;	//1 quantum
-	hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;
-	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;
+	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;		// 1 time quantum as default (to complete 10 time quanta)
+	hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;			// 8 time quantum
+	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;			// 1 time quantum
 
 	if(HAL_CAN_Init(&hcan1) != HAL_OK){
 		Error_handler();

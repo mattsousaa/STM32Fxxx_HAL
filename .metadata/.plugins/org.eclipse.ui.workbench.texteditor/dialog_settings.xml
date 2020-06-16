@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="CAN_identifier_type"/>
+		<item key="selection" value="CAN_filter_mode"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="CAN_filter_mode"/>
 			<item value="CAN_identifier_type"/>
 			<item value="htimer3"/>
 			<item value="TIM_Counter_Mode"/>
@@ -22,7 +23,6 @@
 			<item value="TIM_Output_Compare_and_PWM_modes"/>
 			<item value="TIM_Output_Compare_N_Polarity"/>
 			<item value="TIMER3"/>
-			<item value="pulse4_value"/>
 		</list>
 		<list key="replacehistory">
 			<item value="htimer2"/>
