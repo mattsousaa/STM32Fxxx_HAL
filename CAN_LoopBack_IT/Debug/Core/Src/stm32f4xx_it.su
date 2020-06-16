@@ -1,0 +1,5 @@
+stm32f4xx_it.c:12:6:SysTick_Handler	8	static
+stm32f4xx_it.c:18:6:CAN1_TX_IRQHandler	8	static
+stm32f4xx_it.c:23:6:CAN1_RX0_IRQHandler	8	static
+stm32f4xx_it.c:28:6:CAN1_RX1_IRQHandler	8	static
+stm32f4xx_it.c:33:6:CAN1_SCE_IRQHandler	8	static

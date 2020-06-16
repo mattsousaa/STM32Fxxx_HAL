@@ -1,0 +1,13 @@
+main.c:24:5:main	8	static
+main.c:65:6:SystemClock_Config_HSE	96	static
+main.c:149:6:GPIO_Init	32	static
+main.c:159:6:CAN1_Tx	48	static
+main.c:177:6:CAN_Filter_Config	48	static
+main.c:233:6:UART2_Init	8	static
+main.c:249:6:Error_handler	4	static
+main.c:253:6:CAN1_Init	8	static
+main.c:280:6:HAL_CAN_TxMailbox0CompleteCallback	80	static
+main.c:287:6:HAL_CAN_TxMailbox1CompleteCallback	80	static
+main.c:293:6:HAL_CAN_TxMailbox2CompleteCallback	80	static
+main.c:299:6:HAL_CAN_RxFifo0MsgPendingCallback	104	static
+main.c:314:6:HAL_CAN_ErrorCallback	80	static

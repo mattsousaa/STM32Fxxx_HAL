@@ -1,22 +1,7 @@
-21:52:38 **** Build of configuration Debug for project TIMER_OC_1 ****
+11:34:30 **** Incremental Build of configuration Debug for project CAN_LoopBack_IT ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_hal_msp.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_hal_msp.d" -MT"Core/Src/stm32f1xx_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_hal_msp.o"
-arm-none-eabi-gcc "../Core/Src/stm32f1xx_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f1xx_it.d" -MT"Core/Src/stm32f1xx_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/stm32f1xx_it.o"
-arm-none-eabi-gcc -o "TIMER_OC_1.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\TIMER_OC_1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="TIMER_OC_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: TIMER_OC_1.elf
- 
-arm-none-eabi-objdump -h -S  TIMER_OC_1.elf  > "TIMER_OC_1.list"
-arm-none-eabi-objcopy  -O ihex  TIMER_OC_1.elf  "TIMER_OC_1.hex"
-arm-none-eabi-objcopy  -O binary  TIMER_OC_1.elf  "TIMER_OC_1.bin"
-arm-none-eabi-size   TIMER_OC_1.elf 
+arm-none-eabi-size   CAN_LoopBack_IT.elf 
    text	   data	    bss	    dec	    hex	filename
-   7652	     36	   1700	   9388	   24ac	TIMER_OC_1.elf
+  15560	    120	   1688	  17368	   43d8	CAN_LoopBack_IT.elf
 Finished building: default.size.stdout
- 
-Finished building: TIMER_OC_1.bin
-Finished building: TIMER_OC_1.hex
- 
- 
-Finished building: TIMER_OC_1.list
  
