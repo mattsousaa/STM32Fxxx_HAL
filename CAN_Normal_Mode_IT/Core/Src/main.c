@@ -321,6 +321,9 @@ void CAN1_Init(void){
 
 	hcan1.Instance = CAN1;
 	hcan1.Init.Mode = CAN_MODE_NORMAL;
+	/* The Bus-Off state is reached when TEC (transmit error counter) is greater than 255, this state is indicated by BOFF bit in CAN_ESR register.
+	 * In Bus-Off state, the bxCAN is no longer able to transmit and receive messages.
+	 * If ABOM is set, the bxCAN will start the recovering sequence automatically after it has entered Bus-Off state. */
 	hcan1.Init.AutoBusOff = ENABLE;
 	hcan1.Init.AutoRetransmission = ENABLE;
 	hcan1.Init.AutoWakeUp = DISABLE;

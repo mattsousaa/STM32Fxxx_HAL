@@ -5,11 +5,9 @@
  *      Author: Mateus Sousa
  */
 
-
 #include "main.h"
 
-void HAL_MspInit(void)
-{
+void HAL_MspInit(void){
  //Here will do low level processor specific inits.
 	//1. Set up the priority grouping of the arm cortex mx processor
 	HAL_NVIC_SetPriorityGrouping(NVIC_PRIORITYGROUP_4);
@@ -23,8 +21,7 @@ void HAL_MspInit(void)
 	HAL_NVIC_SetPriority(UsageFault_IRQn,0,0);
 }
 
- void HAL_UART_MspInit(UART_HandleTypeDef *huart)
-{
+void HAL_UART_MspInit(UART_HandleTypeDef *huart){
 	 GPIO_InitTypeDef gpio_uart;
 	 //here we are going to do the low level inits. of the USART2 peripheral
 
@@ -48,12 +45,10 @@ void HAL_MspInit(void)
 
 }
 
+void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan){
+	GPIO_InitTypeDef GPIO_InitStruct;
 
-  void HAL_CAN_MspInit(CAN_HandleTypeDef *hcan)
- {
-	  GPIO_InitTypeDef GPIO_InitStruct;
-
-    __HAL_RCC_CAN1_CLK_ENABLE();
+	__HAL_RCC_CAN1_CLK_ENABLE();
 
 	/**CAN1 GPIO Configuration
 	PA11     ------> CAN1_RX
@@ -76,14 +71,12 @@ void HAL_MspInit(void)
 	HAL_NVIC_EnableIRQ(CAN1_RX1_IRQn);
 	HAL_NVIC_EnableIRQ(CAN1_SCE_IRQn);
 
- }
+}
 
-
-  void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer)
-  {
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htimer){
 
   	//1. enable the clock for the TIM6 peripheral
-  	__HAL_RCC_TIM6_CLK_ENABLE();
+	__HAL_RCC_TIM6_CLK_ENABLE();
 
   	//2. Enable the IRQ of TIM6
   	HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
@@ -91,4 +84,4 @@ void HAL_MspInit(void)
   	//3. setup the priority for TIM6_DAC_IRQn
   	HAL_NVIC_SetPriority(TIM6_DAC_IRQn,15,0);
 
-  }
+}
