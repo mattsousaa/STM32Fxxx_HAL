@@ -332,7 +332,6 @@ void CAN1_Init(void){
 	hcan1.Init.TransmitFifoPriority = DISABLE;
 
 	// Settings related to CAN bit timings
-	// CAN1 peripheral at 42MHz
 	// Visit http://www.bittiming.can-wiki.info/
 	// Bit Rate (Bits/s) = 1Mbps (1us) and number of time quanta = 14;
 	// One bit = Sync + (Prop_Seg + Phase_Seg1) + Seg2 = 14;
