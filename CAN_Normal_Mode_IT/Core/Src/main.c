@@ -234,12 +234,33 @@ void CAN_Filter_Config(void){
 	/* 0x65D = 110 0101 1101 (discard in node2)
 	 * 0x651 = 110 0101 0001 (accept in node2)
 	 *
+	 * FB0_R1(32 bits) and FB0_R2(32 bits)
+	 *
+	 * Fields mapping for FB0_R1 and FB0_R2
+	 *
+	 * |(A)x x x x x x x x|(B)x x x|(C)x x x x x|(D)x x x x x x x x|(E)x x x x x|(F)x|(G)x|(H)x| 32 bits(x)
+	 *
+	 * A - STID[10:3] - MSB
+	 * B - STID[2:0] - LSB
+	 * C - EXID[17:13]
+	 * D - EXID[12:5]
+	 * E - EXID[4:0]
+	 * F - IDE
+	 * G - RTR
+	 * H - 0
+	 *
+	 * A + B + C = HIGH PART REGISTER
+	 * D + E + F + G + H = LOW PART REGISTER
+	 *
+	 * Mask register = |x x x x x x x 1|1 1 x|x x x x x|x x x x x x x x|x x x x x|x|x|x| = 0x01C0 (grouping by 4 bits)
+	 * Id. register =  |x x x x x x x 0|0 0 x|x x x x x|x x x x x x x x|x x x x x|x|x|x|
+	 *
 	 * Node 2 will not receive the data frame from the Node1 (0x65D). It will only transmit to Node1.
 	 * Node 2 will receive only remote frame (0x651)
 	 * It will not print any reception messages, only transmission messages
 	 *
 	 * can1_filter_init.FilterActivation = ENABLE;
-	 * can1_filter_init.FilterBank  = 0;
+	 * can1_filter_init.FilterBank = 0;
 	 * can1_filter_init.FilterFIFOAssignment = CAN_RX_FIFO0;
 	 * can1_filter_init.FilterIdHigh = 0x0000;
 	 * can1_filter_init.FilterIdLow = 0x0000;
@@ -385,7 +406,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 
 	if(RxHeader.StdId == 0x65D && RxHeader.RTR == 0){
 		// This is data frame sent by n1 to n2
-		// After the reception of message (led number), Node2 has to glow the corresponding LED
+		// After the reception of the message (led number), Node2 has to glow the corresponding LED
 		LED_Manage_Output(rcvd_msg[0]);
 		sprintf(msg, "Message Received : #%x\r\n", rcvd_msg[0]);
 

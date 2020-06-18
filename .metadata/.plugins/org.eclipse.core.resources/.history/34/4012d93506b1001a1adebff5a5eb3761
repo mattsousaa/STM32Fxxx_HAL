@@ -30,11 +30,44 @@ TIM_HandleTypeDef htimer6;
 uint8_t req_counter = 0;
 uint8_t led_no = 0;
 
+/*
+ * ######## Screen of Node1 ########
+ *
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Reply Received:0xABCD
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Message Transmitted:M0
+ * Reply Received:0xABCD
+ * ...
+ *
+ * ######## Screen of Node2 ########
+ *
+ * Message Received:#1
+ * Message Received:#2
+ * Message Received:#3
+ * Message Received:#4
+ * Message Transmitted:M0
+ * Message Received:#1
+ * Message Received:#2
+ * Message Received:#3
+ * Message Received:#4
+ * Message Transmitted:M0
+ * ...
+ *
+ * */
+
 int main(void){
 
 	HAL_Init();
 
-	SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
+	SystemClock_Config_HSE(SYS_CLOCK_FREQ_84_MHZ);
 
 	GPIO_Init();
 
@@ -53,6 +86,9 @@ int main(void){
 		Error_handler();
 	}
 
+	/* In order to do the normal operation of Tx and Rx, CAN has to be in normal mode;
+	 * This is according to the controller state machine in the reference manual;
+	 * This function moves the CAN controller from initialization mode to the normal mode. */
 	if(HAL_CAN_Start(&hcan1) != HAL_OK){
 		Error_handler();
 	}
@@ -176,6 +212,7 @@ void CAN1_Tx(){
 
 	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);	// It toggles the user LED for every message sent
 
+	/* Node1 sends a message (led number) using data frame for every 1sec to Node2 */
 	if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, &message, &TxMailbox) != HAL_OK){
 		Error_handler();
 	}
@@ -189,10 +226,47 @@ void CAN_Filter_Config(void){
 	can1_filter_init.FilterFIFOAssignment = CAN_RX_FIFO0;
 	can1_filter_init.FilterIdHigh = 0x0000;
 	can1_filter_init.FilterIdLow = 0x0000;
-	can1_filter_init.FilterMaskIdHigh = 0X01C0;
+	can1_filter_init.FilterMaskIdHigh = 0x0000;
 	can1_filter_init.FilterMaskIdLow = 0x0000;
 	can1_filter_init.FilterMode = CAN_FILTERMODE_IDMASK;
 	can1_filter_init.FilterScale = CAN_FILTERSCALE_32BIT;
+
+	/* 0x65D = 110 0101 1101 (discard in node2)
+	 * 0x651 = 110 0101 0001 (accept in node2)
+	 *
+	 * FB0_R1(32 bits) and FB0_R2(32 bits)
+	 *
+	 * Fields mapping for FB0_R1 and FB0_R2
+	 *
+	 * |(A)x x x x x x x x|(B)x x x|(C)x x x x x|(D)x x x x x x x x|(E)x x x x x|(F)x|(G)x|(H)x| 32 bits(x)
+	 *
+	 * A - STID[10:3]
+	 * B - STID[2:0}
+	 * C - EXID[17:13]
+	 * D - EXID[12:5]
+	 * E - EXID[4:0]
+	 * F - IDE
+	 * G - RTR
+	 * H - 0
+	 *
+	 * A + B + C = HIGH PART REGISTER
+	 * D + E + F + G + H = LOW PART REGISTER
+	 *
+	 * Node 2 will not receive the data frame from the Node1 (0x65D). It will only transmit to Node1.
+	 * Node 2 will receive only remote frame (0x651)
+	 * It will not print any reception messages, only transmission messages
+	 *
+	 * can1_filter_init.FilterActivation = ENABLE;
+	 * can1_filter_init.FilterBank  = 0;
+	 * can1_filter_init.FilterFIFOAssignment = CAN_RX_FIFO0;
+	 * can1_filter_init.FilterIdHigh = 0x0000;
+	 * can1_filter_init.FilterIdLow = 0x0000;
+	 * can1_filter_init.FilterMaskIdHigh = 0X01C0;
+	 * can1_filter_init.FilterMaskIdLow = 0x0000;
+	 * can1_filter_init.FilterMode = CAN_FILTERMODE_IDMASK;
+	 * can1_filter_init.FilterScale = CAN_FILTERSCALE_32BIT;
+	 *
+	 * */
 
 	if(HAL_CAN_ConfigFilter(&hcan1,&can1_filter_init) != HAL_OK){
 		Error_handler();
@@ -238,7 +312,7 @@ void GPIO_Init(void){
 void TIMER6_Init(void){
 	htimer6.Instance = TIM6;
 	htimer6.Init.Prescaler = 4999;
-	htimer6.Init.Period = 10000-1;
+	htimer6.Init.Period = 16800-1;
 
 	if(HAL_TIM_Base_Init(&htimer6) != HAL_OK){
 		Error_handler();
@@ -265,6 +339,9 @@ void CAN1_Init(void){
 
 	hcan1.Instance = CAN1;
 	hcan1.Init.Mode = CAN_MODE_NORMAL;
+	/* The Bus-Off state is reached when TEC (transmit error counter) is greater than 255, this state is indicated by BOFF bit in CAN_ESR register.
+	 * In Bus-Off state, the bxCAN is no longer able to transmit and receive messages.
+	 * If ABOM is set, the bxCAN will start the recovering sequence automatically after it has entered Bus-Off state. */
 	hcan1.Init.AutoBusOff = ENABLE;
 	hcan1.Init.AutoRetransmission = ENABLE;
 	hcan1.Init.AutoWakeUp = DISABLE;
@@ -273,15 +350,21 @@ void CAN1_Init(void){
 	hcan1.Init.TransmitFifoPriority = DISABLE;
 
 	// Settings related to CAN bit timings
+	// CAN1 peripheral at 42MHz
 	// Visit http://www.bittiming.can-wiki.info/
-	// Bit Rate (Bits/s) = 500kbps (2us) and number of time quanta = 10;
-	// One bit = Sync + (Prop_Seg + Phase_Seg1) + Seg2 = 10;
+	// Bit Rate (Bits/s) = 1Mbps (1us) and number of time quanta = 14;
+	// One bit = Sync + (Prop_Seg + Phase_Seg1) + Seg2 = 14;
 	// (Prop_Seg + Phase_Seg1) = Seg1;
 
-	hcan1.Init.Prescaler = 5;
+	/* Increase the distance between nodes to 1 meter using twisted pair cable
+	 * and see still you are able to achieve the frame transmission with 1Mbps
+	 * without ACK error. If there is any error reduce the bitrate and repeat the
+	 * experiment. */
+
+	hcan1.Init.Prescaler = 3;
 	hcan1.Init.SyncJumpWidth = CAN_SJW_1TQ;		// 1 time quantum as default (to complete 10 time quanta)
-	hcan1.Init.TimeSeg1 = CAN_BS1_8TQ;			// 8 time quantum
-	hcan1.Init.TimeSeg2 = CAN_BS2_1TQ;			// 1 time quantum
+	hcan1.Init.TimeSeg1 = CAN_BS1_11TQ;			// 11 time quantum
+	hcan1.Init.TimeSeg2 = CAN_BS2_2TQ;			// 2 time quantum
 
 	if(HAL_CAN_Init(&hcan1) != HAL_OK){
 		Error_handler();
@@ -305,7 +388,7 @@ void HAL_CAN_TxMailbox1CompleteCallback(CAN_HandleTypeDef *hcan){
 // We don't know where mailbox is available (schedule will choose)
 void HAL_CAN_TxMailbox2CompleteCallback(CAN_HandleTypeDef *hcan){
 	char msg[50];
-	sprintf(msg,"Message Transmitted:M2\r\n");
+	sprintf(msg, "Message Transmitted:M2\r\n");
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
 }
 
@@ -320,6 +403,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 
 	if(RxHeader.StdId == 0x65D && RxHeader.RTR == 0){
 		// This is data frame sent by n1 to n2
+		// After the reception of the message (led number), Node2 has to glow the corresponding LED
 		LED_Manage_Output(rcvd_msg[0]);
 		sprintf(msg, "Message Received : #%x\r\n", rcvd_msg[0]);
 
@@ -330,7 +414,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan){
 
 	} else if(RxHeader.StdId == 0x651 && RxHeader.RTR == 0){
 		// It's a reply (data frame) by n2 to n1
-		sprintf(msg, "Reply Received : %#X\r\n", rcvd_msg[0] << 8 | rcvd_msg[1]);
+		sprintf(msg, "Reply Received : %#X\r\n", rcvd_msg[0] << 8 | rcvd_msg[1]); // 0xABCD
 	}
 
 	HAL_UART_Transmit(&huart2, (uint8_t*)msg, strlen(msg), HAL_MAX_DELAY);
@@ -342,12 +426,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	uint32_t TxMailbox;
 	uint8_t message; 						// No meaning for data frame
 
-	if(req_counter == 4){					// Send a remote frame for every 4 seconds
+	if(req_counter == 4){					// Node1 sends a remote frame for every 4 seconds to request 2 bytes of data
 		// N1 sending Remote frame to N2
 		TxHeader.DLC = 2; 					// N1 demanding 2 bytes of reply
 		TxHeader.StdId = 0x651;				// This is just an arbitrary identifier
-		TxHeader.IDE = CAN_ID_STD;
-		TxHeader.RTR = CAN_RTR_REMOTE;
+		TxHeader.IDE = CAN_ID_STD;			// 11 bits + RTR
+		TxHeader.RTR = CAN_RTR_REMOTE;		// Request or remote frame
 
 		// Message here there is no meaning because frame messages will not be sent
 		if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, &message, &TxMailbox) != HAL_OK){
@@ -357,8 +441,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 		req_counter = 0;
 
 	} else{
-		CAN1_Tx();
-		req_counter++;
+		CAN1_Tx();		// Send messages for every 1 second
+		req_counter++;	// Increment request counter
 	}
 }
 
@@ -401,15 +485,14 @@ void Send_response(uint32_t StdId){
 
  	CAN_TxHeaderTypeDef TxHeader;
  	uint32_t TxMailbox;
- 	/* It can be anything like the temperature value, some engine state, some other sensor value,
- 	 * speed information, whatever. */
- 	uint8_t response[2] = {0xAB, 0xCD};
+ 	uint8_t response[2] = {0xAB, 0xCD};		/* It can be anything like the temperature value, some engine state, some other sensor value,
+ 	 	 	 	 	 	 	 	 	 	 	 * speed information, whatever. */
+ 	TxHeader.DLC = 2;				// 0xAB and 0xCD (2 bytes)
+ 	TxHeader.StdId = StdId;			// Identifier ID of Node2
+ 	TxHeader.IDE = CAN_ID_STD;		// 11 bits + RTR
+ 	TxHeader.RTR = CAN_RTR_DATA;	// Request frame
 
- 	TxHeader.DLC = 2;	// 0xAB and 0xCD (2 bytes)
- 	TxHeader.StdId = StdId;
- 	TxHeader.IDE = CAN_ID_STD;
- 	TxHeader.RTR = CAN_RTR_DATA;
-
+ 	/* Node2 upon receiveing the Remote frame should send back 2 bytes of data using data frame */
  	if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, response, &TxMailbox) != HAL_OK){
  		Error_handler();
  	}
