@@ -24995,3 +24995,537 @@
 
 
 2020-06-17 21:02:58,984 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-18 16:45:53,559 [INFO] Activator:176 - 
+
+
+2020-06-18 16:45:53,599 [INFO] Activator:177 - !SESSION log4j initialized
+2020-06-18 17:14:56,854 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-06-18 17:14:56,890 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-06-18 17:14:56,900 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-06-18 17:14:56,900 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:56,900 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:56,905 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-06-18 17:14:56,934 [INFO] DbMcusAds:72 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:56,938 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:56,940 [INFO] DbMcusJson:59 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:56,944 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:56,946 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,171 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-06-18 17:14:57,393 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
+2020-06-18 17:14:57,534 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
+2020-06-18 17:14:57,535 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-06-18 17:14:57,535 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-06-18 17:14:57,537 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:57,538 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:57,538 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-06-18 17:14:57,538 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,538 [INFO] DbMcusAds:72 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,539 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,539 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,539 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,540 [INFO] DbMcusJson:59 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,540 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,540 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,540 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,541 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,541 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,541 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,541 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-06-18 17:14:57,677 [INFO] MainPanel:180 - HeapMemory: 336592896
+2020-06-18 17:14:57,852 [INFO] DbMcusXml:69 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/
+2020-06-18 17:14:57,853 [INFO] DbBoardsPdsc:54 - Set plugin database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/boardmanager/
+2020-06-18 17:14:57,853 [INFO] DbMcus:264 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:57,853 [INFO] DbBoards:232 - Set plugin images path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/
+2020-06-18 17:14:57,853 [INFO] APIGFXSelector:72 - Set database path to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/mcu/
+2020-06-18 17:14:57,854 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,854 [INFO] DbMcusAds:72 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,854 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,856 [INFO] DbMcusDocs:92 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,856 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,856 [INFO] DbMcusJson:59 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,856 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,857 [INFO] DbBoardsDocs:84 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,857 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,857 [INFO] DbBoardsJson:51 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/
+2020-06-18 17:14:57,857 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,857 [WARN] DbFile:31 - Overriding database path with different value: C:\Users\mateu\.stmcufinder\plugins\mcufinder/ => C:\Users\mateu\.stmcufinder\plugins\mcufinder
+2020-06-18 17:14:57,857 [INFO] CrossReferenceDbSqlite:197 - Set database path to: C:\Users\mateu\.stmcufinder\plugins\mcufinder//mcu/cs/
+2020-06-18 17:14:57,897 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-06-18 17:14:57,898 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=]
+2020-06-18 17:14:57,903 [INFO] PluginManage:292 - Check plugin analytics
+2020-06-18 17:14:57,935 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-06-18 17:14:57,936 [INFO] PluginManage:292 - Check plugin clock
+2020-06-18 17:14:57,972 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-06-18 17:14:57,972 [INFO] PluginManage:292 - Check plugin ddr
+2020-06-18 17:14:57,979 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-06-18 17:14:57,980 [INFO] PluginManage:292 - Check plugin filemanager
+2020-06-18 17:14:58,222 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-06-18 17:14:58,226 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-06-18 17:14:58,237 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-06-18 17:14:58,237 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-06-18 17:14:58,268 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-06-18 17:14:58,268 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-06-18 17:14:58,321 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-06-18 17:14:58,322 [INFO] PluginManage:292 - Check plugin power
+2020-06-18 17:14:58,359 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-06-18 17:14:58,361 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-06-18 17:14:58,386 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-06-18 17:14:58,386 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-06-18 17:14:58,543 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/mateu/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 56 ms. number of Sw pack : 14
+2020-06-18 17:14:58,601 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-06-18 17:14:58,602 [INFO] PluginManage:292 - Check plugin tools
+2020-06-18 17:14:58,658 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-06-18 17:14:58,659 [INFO] PluginManage:292 - Check plugin updater
+2020-06-18 17:14:58,683 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-06-18 17:14:58,684 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
+2020-06-18 17:14:59,251 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:14:59,492 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:14:59,497 [INFO] PluginManager:200 - loadIPPluginJar : add adc
+2020-06-18 17:14:59,639 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:14:59,640 [INFO] PluginManager:200 - loadIPPluginJar : add aes
+2020-06-18 17:14:59,837 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:14:59,841 [INFO] PluginManager:200 - loadIPPluginJar : add can
+2020-06-18 17:14:59,942 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:14:59,943 [INFO] PluginManager:200 - loadIPPluginJar : add comp
+2020-06-18 17:15:00,103 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,104 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
+2020-06-18 17:15:00,177 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,179 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
+2020-06-18 17:15:00,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,219 [INFO] PluginManager:200 - loadIPPluginJar : add dma
+2020-06-18 17:15:00,272 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,274 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
+2020-06-18 17:15:00,409 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,409 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
+2020-06-18 17:15:00,442 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,442 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
+2020-06-18 17:15:00,494 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,494 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
+2020-06-18 17:15:00,746 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,747 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
+2020-06-18 17:15:00,771 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:00,773 [INFO] PluginManager:200 - loadIPPluginJar : add gfxsimulator
+2020-06-18 17:15:01,123 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,124 [INFO] PluginManager:200 - loadIPPluginJar : add gic
+2020-06-18 17:15:01,152 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,152 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
+2020-06-18 17:15:01,284 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,285 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
+2020-06-18 17:15:01,363 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,364 [INFO] PluginManager:200 - loadIPPluginJar : add hash
+2020-06-18 17:15:01,539 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,539 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
+2020-06-18 17:15:01,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,661 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
+2020-06-18 17:15:01,997 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:01,998 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
+2020-06-18 17:15:02,075 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,075 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
+2020-06-18 17:15:02,094 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,094 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
+2020-06-18 17:15:02,122 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,124 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
+2020-06-18 17:15:02,206 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,206 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
+2020-06-18 17:15:02,312 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,312 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
+2020-06-18 17:15:02,340 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,347 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
+2020-06-18 17:15:02,387 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,387 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
+2020-06-18 17:15:02,404 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,404 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
+2020-06-18 17:15:02,525 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,525 [INFO] PluginManager:200 - loadIPPluginJar : add sai
+2020-06-18 17:15:02,620 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,624 [INFO] PluginManager:200 - loadIPPluginJar : add spi
+2020-06-18 17:15:02,707 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,708 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
+2020-06-18 17:15:02,762 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,762 [INFO] PluginManager:200 - loadIPPluginJar : add tim
+2020-06-18 17:15:02,934 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,934 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
+2020-06-18 17:15:02,989 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:02,989 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
+2020-06-18 17:15:03,052 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:03,052 [INFO] PluginManager:200 - loadIPPluginJar : add ts
+2020-06-18 17:15:03,106 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:03,106 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
+2020-06-18 17:15:03,160 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:03,160 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
+2020-06-18 17:15:03,268 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:15:03,268 [INFO] PluginManager:200 - loadIPPluginJar : add usart
+2020-06-18 17:15:03,973 [INFO] BoardConnectionPanel:226 - [DDR PANEL] osNameString: Windows
+2020-06-18 17:15:04,219 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-06-18 17:15:04,219 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
+2020-06-18 17:15:04,522 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-06-18 17:15:04,565 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-06-18 17:15:04,565 [ERROR] IntegrityCheckThread:252 - Cannot obtain thirdParties list 21
+2020-06-18 17:15:04,565 [ERROR] IntegrityCheckThread:100 - Unexpected exception IntegrityCheckThread Thread: Updater error
+2020-06-18 17:15:04,565 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (C:/Users/mateu/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-06-18 17:15:04,955 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-06-18 17:15:04,966 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:15:04,966 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-06-18 17:15:04,974 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-06-18 17:15:04,974 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-06-18 17:15:04,986 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin\STM32_Programmer_CLI.exe -l
+2020-06-18 17:15:05,396 [INFO] MainDdrPanel:93 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_1.1.0.201910081157\tools\bin
+2020-06-18 17:15:05,463 [INFO] Updater:886 - Updater Version found : 5.5.0
+2020-06-18 17:15:05,507 [INFO] ApplicationProperties:181 - Using Application install path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511
+2020-06-18 17:15:06,302 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-18 17:15:06,302 [INFO] MainUpdater:236 - Updater Check For Update Now.
+2020-06-18 17:15:06,302 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 17:15:06,412 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-06-18 17:15:06,540 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-18 17:15:06,540 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
+2020-06-18 17:15:07,102 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
+2020-06-18 17:15:07,125 [INFO] FinderPluginLoader:86 - Searching for filters in installed packs
+2020-06-18 17:15:07,128 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
+2020-06-18 17:15:08,797 [INFO] DbMcusJson:87 - JSON generation date=Wed Jun 03 12:10:31 GFT 2020 (1591197031)
+2020-06-18 17:15:10,539 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
+2020-06-18 17:15:10,543 [INFO] ApiDb:158 - Load user favorites file C:\Users\mateu/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-06-18 17:15:10,543 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-06-18 17:15:10,543 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
+2020-06-18 17:15:12,219 [INFO] DbMcusAds:130 - JSON generation date=Thu Apr 30 10:50:56 GFT 2020 (1588254656)
+2020-06-18 17:15:12,223 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-06-18 17:15:12,260 [INFO] McuDetailPanel:181 - Set advertising image to C:/Users/mateu/STM32Cube/Repository/\PR_STM32Cube_GitHub_0320_V1.png
+2020-06-18 17:15:14,173 [INFO] ServerAccessManage:348 - Download File mcusDocs.json
+2020-06-18 17:15:14,651 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:15:15,215 [INFO] ServerAccessManage:348 - Download File mcusFeaturesAndDescription.json
+2020-06-18 17:16:02,336 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:16:02,934 [INFO] ServerAccessManage:348 - Download File mcusAds.json
+2020-06-18 17:16:02,983 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:16:03,520 [INFO] ServerAccessManage:348 - Download File boardsDocs.json
+2020-06-18 17:16:06,771 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:16:07,364 [INFO] ServerAccessManage:348 - Download File boards.json
+2020-06-18 17:16:11,354 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:16:12,151 [INFO] ServerAccessManage:348 - Download File crdb.zip
+2020-06-18 17:16:19,268 [INFO] FileExtend:225 - Unzip File : crdb.zip
+2020-06-18 17:16:19,272 [INFO] FileExtend:240 - Standard Zip Deflate
+2020-06-18 17:16:19,366 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-06-18 17:16:19,394 [INFO] DbMcusDocs:126 - JSON generation date=Wed Jun 03 12:10:31 GFT 2020 (1591197031)
+2020-06-18 17:16:19,547 [INFO] DbMcusDocs:61 - Found 580 MCUs documents
+2020-06-18 17:16:19,552 [INFO] ApiDb:186 - Save user favorites file C:\Users\mateu/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-06-18 17:16:19,552 [INFO] ApiDb:191 - User favorites MCUs=[]
+2020-06-18 17:16:19,552 [INFO] DbMcusXml:107 - Load MCU database from C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/mcu/families.xml
+2020-06-18 17:16:20,202 [INFO] DbMcusJson:87 - JSON generation date=Wed Jun 03 12:10:31 GFT 2020 (1591197031)
+2020-06-18 17:16:20,971 [INFO] DbMcus:192 - Found 1628 MCUs (1588 are supported by CubeMX, 1588 are visible in CubeMX)
+2020-06-18 17:16:20,971 [INFO] ApiDb:158 - Load user favorites file C:\Users\mateu/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-06-18 17:16:20,971 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-06-18 17:16:20,971 [INFO] DbMcus:203 - Set 0 / 0 favorites MCUs
+2020-06-18 17:16:21,091 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
+2020-06-18 17:16:21,395 [INFO] DbBoardsDocs:118 - JSON generation date=Wed Jun 03 12:10:31 GFT 2020 (1591197031)
+2020-06-18 17:16:21,423 [INFO] DbBoardsPdsc:92 - Found 21 items
+2020-06-18 17:16:21,438 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-06-18 17:16:21,451 [INFO] DbBoardsPdsc:92 - Found 27 items
+2020-06-18 17:16:21,458 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-06-18 17:16:21,477 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-06-18 17:16:21,500 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-06-18 17:16:21,517 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-06-18 17:16:21,524 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-06-18 17:16:21,531 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-06-18 17:16:21,534 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-06-18 17:16:21,535 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-06-18 17:16:21,535 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-06-18 17:16:21,535 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-06-18 17:16:21,535 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-06-18 17:16:21,536 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-06-18 17:16:21,536 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-06-18 17:16:21,545 [INFO] DbBoardsJson:79 - JSON generation date=Wed May 20 08:36:55 GFT 2020 (1589974615)
+2020-06-18 17:16:21,550 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
+2020-06-18 17:16:21,558 [INFO] DbBoardsDocs:118 - JSON generation date=Wed Jun 03 12:10:31 GFT 2020 (1591197031)
+2020-06-18 17:16:21,572 [INFO] DbBoardsDocs:57 - Found 183 boards documents
+2020-06-18 17:16:21,572 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-06-18 17:16:21,573 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-06-18 17:16:21,573 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-06-18 17:16:21,574 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-06-18 17:16:21,574 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-06-18 17:16:21,575 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-06-18 17:16:21,575 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-06-18 17:16:21,575 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-06-18 17:16:21,575 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-06-18 17:16:21,577 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-06-18 17:16:22,007 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
+2020-06-18 17:16:24,214 [INFO] ApiDb:158 - Load user favorites file C:\Users\mateu/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-06-18 17:16:24,218 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-06-18 17:16:24,218 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-06-18 17:16:24,227 [INFO] DbBoardsDocs:57 - Found 366 boards documents
+2020-06-18 17:16:24,231 [INFO] ApiDb:186 - Save user favorites file C:\Users\mateu/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-06-18 17:16:24,231 [INFO] ApiDb:191 - User favorites Boards=[]
+2020-06-18 17:16:24,233 [INFO] DbBoardsPdsc:92 - Found 21 items
+2020-06-18 17:16:24,233 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-06-18 17:16:24,237 [INFO] DbBoardsPdsc:92 - Found 27 items
+2020-06-18 17:16:24,239 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-06-18 17:16:24,263 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-06-18 17:16:24,266 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-06-18 17:16:24,266 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-06-18 17:16:24,271 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-06-18 17:16:24,273 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-06-18 17:16:24,273 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-06-18 17:16:24,275 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-06-18 17:16:24,275 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-06-18 17:16:24,275 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-06-18 17:16:24,275 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-06-18 17:16:24,276 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V1: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-06-18 17:16:24,276 [WARN] DbBoardsPdsc:256 - Board STEVAL-IDP005V2: unknown feature type=PWRSock, name=Power Socket, username=IO-Link 4-position M12 A-coded connector, n=1
+2020-06-18 17:16:24,282 [INFO] DbBoardsJson:79 - JSON generation date=Wed May 20 08:36:55 GFT 2020 (1589974615)
+2020-06-18 17:16:24,289 [INFO] DbBoards:120 - Found 144 boards (140 are supported by CubeMX)
+2020-06-18 17:16:24,297 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-06-18 17:16:24,297 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-06-18 17:16:24,297 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-06-18 17:16:24,299 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-06-18 17:16:24,547 [ERROR] DbBoards:192 - Image file not found for board P-NUCLEO-WB55: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\/plugins/mcufinder/images/boards/p-nucleo-wb55_small.jpg
+2020-06-18 17:16:25,358 [INFO] ApiDb:158 - Load user favorites file C:\Users\mateu/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-06-18 17:16:25,358 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-06-18 17:16:25,358 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-06-18 17:16:25,576 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-06-18 17:16:25,583 [INFO] McuFilterPanel:282 - Update 0 favorites MCUs
+2020-06-18 17:16:25,776 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-06-18 17:16:25,776 [INFO] BoardDetailPanel:179 - Set advertising image to C:/Users/mateu/STM32Cube/Repository/\PR_STM32Cube_GitHub_0320_V1.png
+2020-06-18 17:16:25,801 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
+2020-06-18 17:16:26,069 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: C:\Users\mateu\.stmcufinder\plugins\mcufinder\mcu\cs_comparisons_mx
+2020-06-18 17:17:10,804 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.8.0
+2020-06-18 17:17:11,415 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] File copied successfully!!
+2020-06-18 17:17:11,601 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-18 17:17:11,671 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 17:17:11,671 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 17:17:11,675 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:17:11,676 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 347112992 Bytes (635437056)
+2020-06-18 17:17:11,677 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 17:17:11,677 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 17:17:11,677 [INFO] OpenFileManager:274 - Change cursor
+2020-06-18 17:17:13,069 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.ThirdPartyNb) in loaded IOC file
+2020-06-18 17:17:13,069 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.PinsNb) in loaded IOC file
+2020-06-18 17:17:13,069 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.IPNb) in loaded IOC file
+2020-06-18 17:17:13,188 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 525744104 Bytes (635437056)
+2020-06-18 17:17:13,202 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (C:/Users/mateu/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 6 ms. number of Sw pack : 14
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.7.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.2.0
+2020-06-18 17:17:13,349 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-06-18 17:17:13,561 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:17:13,562 [INFO] PinOutPanel:1399 - setPackage(STM32F103C6Tx,LQFP48)
+2020-06-18 17:17:14,142 [INFO] UtilMem:74 - Before build in PCC Used Memory: 409628608 Bytes (635437056)
+2020-06-18 17:17:14,627 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/mateu/.stm32cubemx/plugins/power
+2020-06-18 17:17:14,629 [INFO] UtilMem:74 - After build in PCC Used Memory: 423786424 Bytes (635437056)
+2020-06-18 17:17:14,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,661 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,663 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,663 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,663 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,664 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,668 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:17:14,718 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2020-06-18 17:17:14,821 [INFO] OpenFileManager:294 - Restore cursor
+2020-06-18 17:17:15,050 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 447903672 Bytes (635437056)
+2020-06-18 17:17:15,155 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 452116472 Bytes (635437056)
+2020-06-18 17:17:15,500 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-06-18 17:17:15,500 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-06-18 17:17:15,502 [INFO] CodeGenerator:601 - code generatio: config db path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\
+2020-06-18 17:17:16,098 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\license.tmp_save
+2020-06-18 17:17:16,450 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\license.tmp
+2020-06-18 17:17:16,612 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-06-18 17:17:16,612 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-18 17:17:16,692 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_it.c_save
+2020-06-18 17:17:16,959 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_it.c
+2020-06-18 17:17:17,001 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_it.h_save
+2020-06-18 17:17:17,091 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_it.h
+2020-06-18 17:17:17,139 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_hal_msp.c_save
+2020-06-18 17:17:17,281 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_hal_msp.c
+2020-06-18 17:17:17,318 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\system.tmp_save
+2020-06-18 17:17:17,397 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\system.tmp
+2020-06-18 17:17:17,448 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_hal_conf.h_save
+2020-06-18 17:17:17,555 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_hal_conf.h
+2020-06-18 17:17:17,619 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\main.h_save
+2020-06-18 17:17:17,726 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\main.h
+2020-06-18 17:17:17,774 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\main.c_save
+2020-06-18 17:17:17,915 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\main.c
+2020-06-18 17:17:19,680 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 1114mS.
+2020-06-18 17:17:19,689 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-06-18 17:17:20,259 [INFO] ConfigFileManager:1043 - The Die is : DIE412
+2020-06-18 17:17:29,162 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 9473mS.
+2020-06-18 17:17:29,166 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-06-18 17:17:29,166 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-06-18 17:19:02,720 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 674090552 Bytes (895483904)
+2020-06-18 17:19:02,942 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 689714472 Bytes (895483904)
+2020-06-18 17:19:03,110 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: NVIC
+2020-06-18 17:19:03,110 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: SYS
+2020-06-18 17:19:03,111 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: GPIO
+2020-06-18 17:19:03,111 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: USART
+2020-06-18 17:19:03,111 [INFO] BlockDiagram:2751 - set Specific Code input for plugin: TIM1_8F1
+2020-06-18 17:19:03,114 [INFO] CodeGenerator:601 - code generatio: config db path: C:\ST\STM32CubeIDE_1.2.0\STM32CubeIDE\plugins\com.st.stm32cube.common.mx_5.5.0.201912201511\\db\
+2020-06-18 17:19:03,394 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\license.tmp_save
+2020-06-18 17:19:03,475 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\license.tmp
+2020-06-18 17:19:03,558 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\gpio.tmp_save
+2020-06-18 17:19:03,639 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\gpio.tmp
+2020-06-18 17:19:03,747 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-18 17:19:03,751 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-06-18 17:19:03,752 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-18 17:19:03,757 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-06-18 17:19:03,763 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for USART
+2020-06-18 17:19:03,763 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-18 17:19:03,766 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-06-18 17:19:03,767 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-06-18 17:19:03,838 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_it.c_save
+2020-06-18 17:19:03,937 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_it.c
+2020-06-18 17:19:03,973 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_it.h_save
+2020-06-18 17:19:04,045 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_it.h
+2020-06-18 17:19:04,092 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_hal_msp.c_save
+2020-06-18 17:19:04,258 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\stm32f1xx_hal_msp.c
+2020-06-18 17:19:04,288 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\system.tmp_save
+2020-06-18 17:19:04,355 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\MXTmpFiles\system.tmp
+2020-06-18 17:19:04,398 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_hal_conf.h_save
+2020-06-18 17:19:04,551 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\stm32f1xx_hal_conf.h
+2020-06-18 17:19:04,576 [WARN] IPConfigManager:2706 - IP not found : TIM
+2020-06-18 17:19:04,576 [WARN] IPConfigManager:2706 - IP not found : gpio
+2020-06-18 17:19:04,577 [WARN] CodeGenerator:2776 - IP not found : TIM
+2020-06-18 17:19:04,577 [WARN] CodeGenerator:2776 - IP not found : gpio
+2020-06-18 17:19:04,679 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\main.h_save
+2020-06-18 17:19:04,817 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Inc\main.h
+2020-06-18 17:19:04,864 [INFO] CodeEngine:193 - oldGeneratedFile, C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\main.c_save
+2020-06-18 17:19:05,000 [INFO] CodeEngine:211 - Generated code: C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\Core\Src\main.c
+2020-06-18 17:19:05,778 [INFO] ProjectBuilder:1843 - Time for Copy HAL[1] : 222mS.
+2020-06-18 17:19:05,783 [INFO] ProjectBuilder:2428 - Project Generator version: 3.6.0
+2020-06-18 17:19:06,392 [INFO] ConfigFileManager:1043 - The Die is : DIE412
+2020-06-18 17:19:08,311 [INFO] ProjectBuilder:2595 - Time for Generating toolchain IDE Files: 2528mS.
+2020-06-18 17:19:08,313 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 1mS.
+2020-06-18 17:19:08,315 [INFO] ProjectBuilder:1703 - Time for Copy CMSIS : 0mS.
+2020-06-18 17:29:58,746 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-18 17:29:58,839 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 17:29:58,839 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 17:29:58,841 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:29:58,842 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 509002248 Bytes (913309696)
+2020-06-18 17:29:58,843 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 17:29:58,843 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 17:29:58,843 [INFO] OpenFileManager:274 - Change cursor
+2020-06-18 17:29:58,851 [INFO] RulesReader:52 - Compatibility file has been processed (205 Rules)
+2020-06-18 17:29:59,640 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 547535240 Bytes (913309696)
+2020-06-18 17:29:59,703 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.7.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.2.0
+2020-06-18 17:29:59,704 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-06-18 17:29:59,756 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 17:29:59,760 [INFO] PinOutPanel:1399 - setPackage(STM32F103C6Tx,LQFP48)
+2020-06-18 17:29:59,954 [INFO] UtilMem:74 - Before build in PCC Used Memory: 657288216 Bytes (913309696)
+2020-06-18 17:30:00,074 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/mateu/.stm32cubemx/plugins/power
+2020-06-18 17:30:00,074 [INFO] UtilMem:74 - After build in PCC Used Memory: 664777984 Bytes (913309696)
+2020-06-18 17:30:00,083 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,083 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,085 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,086 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,087 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,087 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,087 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,087 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,088 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,089 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,089 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,089 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,089 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,089 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,090 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,090 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,090 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,090 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 17:30:00,109 [INFO] OpenFileManager:294 - Restore cursor
+2020-06-18 18:25:08,976 [INFO] MainUpdater:2230 - connection check result : 10
+2020-06-18 18:25:09,044 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 18:25:09,044 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 18:25:09,046 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 18:25:09,048 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 436187656 Bytes (913309696)
+2020-06-18 18:25:09,048 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-06-18 18:25:09,049 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.50
+2020-06-18 18:25:09,049 [INFO] OpenFileManager:274 - Change cursor
+2020-06-18 18:25:09,664 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 501818816 Bytes (913309696)
+2020-06-18 18:25:09,719 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.7.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.2.0
+2020-06-18 18:25:09,720 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-06-18 18:25:09,760 [INFO] PinOutPanel:1399 - setPackage(No Configuration,No Configuration)
+2020-06-18 18:25:09,761 [INFO] PinOutPanel:1399 - setPackage(STM32F103C6Tx,LQFP48)
+2020-06-18 18:25:09,882 [INFO] UtilMem:74 - Before build in PCC Used Memory: 611168544 Bytes (913309696)
+2020-06-18 18:25:09,964 [INFO] SharedServices:71 - Folder for power plug-in: C:/Users/mateu/.stm32cubemx/plugins/power
+2020-06-18 18:25:09,964 [INFO] UtilMem:74 - After build in PCC Used Memory: 618508576 Bytes (913309696)
+2020-06-18 18:25:09,971 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,972 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,973 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,974 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-06-18 18:25:09,990 [INFO] OpenFileManager:294 - Restore cursor
