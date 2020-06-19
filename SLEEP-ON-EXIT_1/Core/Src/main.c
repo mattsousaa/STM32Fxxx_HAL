@@ -87,7 +87,7 @@ int main(void){
 
 	HAL_Init();
 
-	SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
+	//SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
 
 	GPIO_Init();
 
