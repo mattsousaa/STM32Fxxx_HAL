@@ -8,7 +8,6 @@ S_SRCS :=
 C_SRCS := 
 S_UPPER_SRCS := 
 O_SRCS := 
-OBJCOPY_HEX := 
 SIZE_OUTPUT := 
 OBJDUMP_LIST := 
 EXECUTABLES := 
@@ -20,5 +19,5 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Core/Src \
 Core/Startup \
-Drivers/STM32F1xx_HAL_Driver/Src \
+Drivers/STM32F4xx_HAL_Driver/Src \
 

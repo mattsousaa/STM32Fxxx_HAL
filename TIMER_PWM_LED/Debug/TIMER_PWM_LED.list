@@ -125,7 +125,7 @@ int main(void){
  8000184:	681b      	ldr	r3, [r3, #0]
  8000186:	88fa      	ldrh	r2, [r7, #6]
  8000188:	639a      	str	r2, [r3, #56]	; 0x38
-			HAL_Delay(1);
+			HAL_Delay(1); // Slow down the processor here (The timer is running at 6400000Hz)
  800018a:	2001      	movs	r0, #1
  800018c:	f000 fa4a 	bl	8000624 <HAL_Delay>
 		while(brightness < htimer2.Init.Period){

@@ -1,7 +1,7 @@
 /*
  * data.c
  *
- *  Created on: Jun 18, 2020
+ *  Created on: 18 de Junho de 2020
  *      Author: Mateus Sousa
  */
 

@@ -8,7 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
+-include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include subdir.mk
@@ -32,9 +32,6 @@ default.size.stdout \
 OBJDUMP_LIST += \
 SLEEP-ON-EXIT_1.list \
 
-OBJCOPY_HEX += \
-SLEEP-ON-EXIT_1.hex \
-
 OBJCOPY_BIN += \
 SLEEP-ON-EXIT_1.bin \
 
@@ -43,8 +40,8 @@ SLEEP-ON-EXIT_1.bin \
 all: SLEEP-ON-EXIT_1.elf secondary-outputs
 
 # Tool invocations
-SLEEP-ON-EXIT_1.elf: $(OBJS) $(USER_OBJS) C:\Users\mateu\Documents\Curso\ STM32\MCU2\SLEEP-ON-EXIT_1\STM32F103C6TX_FLASH.ld
-	arm-none-eabi-gcc -o "SLEEP-ON-EXIT_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SLEEP-ON-EXIT_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SLEEP-ON-EXIT_1.elf: $(OBJS) $(USER_OBJS) C:\Users\mateu\Documents\Curso\ STM32\MCU2\SLEEP-ON-EXIT_1\STM32F446RETX_FLASH.ld
+	arm-none-eabi-gcc -o "SLEEP-ON-EXIT_1.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\SLEEP-ON-EXIT_1\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SLEEP-ON-EXIT_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -58,11 +55,6 @@ SLEEP-ON-EXIT_1.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-SLEEP-ON-EXIT_1.hex: $(EXECUTABLES)
-	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "SLEEP-ON-EXIT_1.hex"
-	@echo 'Finished building: $@'
-	@echo ' '
-
 SLEEP-ON-EXIT_1.bin: $(EXECUTABLES)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "SLEEP-ON-EXIT_1.bin"
 	@echo 'Finished building: $@'
@@ -73,7 +65,7 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

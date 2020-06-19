@@ -1,108 +1,246 @@
+/*
+ * main.c
+ *
+ *  Created on: 18 de Junho de 2020
+ *      Author: Mateus Sousa
+ */
+
 #include <string.h>
+#include <string.h>
+#include "stm32f4xx_hal.h"
 #include "main.h"
-#include "stm32f1xx_hal_tim.h"
 
-void SystemClockConfig(void);
-void MX_USART2_UART_Init(void);
-void TIMER3_Init(void);
 void GPIO_Init(void);
-void Error_Handler(void);
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+void Error_handler(void);
+void TIMER6_Init(void);
+void UART2_Init(void);
+void SystemClock_Config_HSE(uint8_t clock_freq);
+void GPIO_AnalogConfig(void);
 
-/* TIMER3 can be used for basic timer
- * See STM32 cross-series timer overview document for more details */
-TIM_HandleTypeDef htimer3;
+TIM_HandleTypeDef htimer6;
 UART_HandleTypeDef huart2;
-
 extern uint8_t some_data[];
+
+/*
+ * Tips to reduce the Power Consumption
+ * UART2, TIM6, GPIO
+ * =======================================
+ * ...........(HCLK: 50MHz PLL)
+ * =======================================
+ * With out SLEEPONEXIT/WFI/WFE
+ * Current consumption: 11mA
+ *
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 7.5mA
+ *
+ * ========================================================
+ * ...........(HCLK: 16MHz HSI) + UART2 Baudrate of 115200
+ * ========================================================
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 3mA
+ *
+ * =====================================================
+ * ...........(HCLK: 16MHz HSI) + UART2 Baudrate 230400
+ * =====================================================
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 2.45mA
+ *
+ * =====================================================
+ * ...........(HCLK: 16MHz HSI) + UART2 Baudrate 460800
+ * =====================================================
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 2.35mA
+ *
+ * ===========================================================================
+ * ...........(HCLK: 16MHz HSI) +
+ * ........... UART2 Baudrate 460800 +
+ * ........... Disabling all peripherals of AHBx and APBx domain during sleep
+ * ===========================================================================
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 2.06mA
+ *
+ * ===========================================================================
+ * ...........(HCLK: 16MHz HSI) +
+ * ........... UART2 Baudrate 460800 +
+ * ........... Disabling all peripherals of AHBx and APBx domain during sleep +
+ * ........... I/O analog mode
+ * ===========================================================================
+ * With SLEEPONEXIT/WFI/WFE
+ * Current consumption: 1.86mA
+ *
+ * How long your battery last?
+ * Let's say you are using 9V battery for this application.
+ * 9V battery typically comes with AH(Ampere-hour) rating of 500mAH.
+ * i.e: The battery can give 500mA of current continuously for 1 Hr before going dead.
+ *
+ * Case 1: 50MHz PLL, No sleep mode
+ * Avg. current consumption: 11mA
+ * Application life = 500mA/11mA = 45Hrs (~2 days)
+ *
+ * Case 2: 16MHz, No PLL, with sleep mode and other settings
+ * Avg. current consumption: 1.86mA
+ * Application life = 500mA/1.86mA = 269Hrs (~11 days)
+ *
+ * */
 
 int main(void){
 
 	HAL_Init();
-	SystemClockConfig();
-	GPIO_Init();
-	MX_USART2_UART_Init();
 
-	TIMER3_Init();
+	SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
+
+	GPIO_Init();
+
+	//HAL_SuspendTick();
+
+	UART2_Init();
+
+	TIMER6_Init();
+
+	GPIO_AnalogConfig();
 
 	//SCB->SCR |= (1 << 1); // See on Generic user guide
-	/* Current on run mode: 4.5 mA
-	 * Current on sleep mode: 3.10 mA */
 	HAL_PWR_EnableSleepOnExit(); // Enter sleep mode, on return from an ISR.
 
 	/* lets start with fresh Status register of Timer to avoid any spurious interrupts */
-	TIM3->SR = 0;
+    TIM6->SR = 0;
 
-	//Lets start timer in IT mode
-	HAL_TIM_Base_Start_IT(&htimer3);
+	//Lets start the timer in interrupt mode
+	HAL_TIM_Base_Start_IT(&htimer6);
 
 	while(1);
 
+	return 0;
 }
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config_HSE(uint8_t clock_freq){
 
-	if(HAL_UART_Transmit(&huart2, (uint8_t*)some_data, (uint16_t)strlen((char*)some_data), HAL_MAX_DELAY) != HAL_OK){
-		Error_Handler();
+	RCC_OscInitTypeDef Osc_Init;
+	RCC_ClkInitTypeDef Clock_Init;
+    uint8_t flash_latency=0;
+
+	Osc_Init.OscillatorType = RCC_OSCILLATORTYPE_HSE ;
+	Osc_Init.HSEState = RCC_HSE_ON;
+	Osc_Init.PLL.PLLState = RCC_PLL_ON;
+	Osc_Init.PLL.PLLSource = RCC_PLLSOURCE_HSE;
+
+	switch(clock_freq){
+
+	case SYS_CLOCK_FREQ_50_MHZ:
+
+		Osc_Init.PLL.PLLM = 4;
+		Osc_Init.PLL.PLLN = 50;
+		Osc_Init.PLL.PLLP = RCC_PLLP_DIV2;
+		Osc_Init.PLL.PLLQ = 2;
+		Osc_Init.PLL.PLLR = 2;
+		Clock_Init.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+	                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+		Clock_Init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+		Clock_Init.AHBCLKDivider = RCC_SYSCLK_DIV1;
+		Clock_Init.APB1CLKDivider = RCC_HCLK_DIV2;
+		Clock_Init.APB2CLKDivider = RCC_HCLK_DIV1;
+		flash_latency = 1;
+
+	    break;
+
+	case SYS_CLOCK_FREQ_84_MHZ:
+
+		Osc_Init.PLL.PLLM = 4;
+		Osc_Init.PLL.PLLN = 84;
+		Osc_Init.PLL.PLLP = RCC_PLLP_DIV2;
+		Osc_Init.PLL.PLLQ = 2;
+		Osc_Init.PLL.PLLR = 2;
+		Clock_Init.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+	                           |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+		Clock_Init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+		Clock_Init.AHBCLKDivider = RCC_SYSCLK_DIV1;
+		Clock_Init.APB1CLKDivider = RCC_HCLK_DIV2;
+		Clock_Init.APB2CLKDivider = RCC_HCLK_DIV1;
+        flash_latency = 2;
+
+	    break;
+
+	case SYS_CLOCK_FREQ_120_MHZ:
+		Osc_Init.PLL.PLLM = 4;
+		Osc_Init.PLL.PLLN = 120;
+		Osc_Init.PLL.PLLP = RCC_PLLP_DIV2;
+		Osc_Init.PLL.PLLQ = 2;
+		Osc_Init.PLL.PLLR = 2;
+		Clock_Init.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
+	                           |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
+		Clock_Init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+		Clock_Init.AHBCLKDivider = RCC_SYSCLK_DIV1;
+		Clock_Init.APB1CLKDivider = RCC_HCLK_DIV4;
+		Clock_Init.APB2CLKDivider = RCC_HCLK_DIV2;
+        flash_latency = 3;
+
+	    break;
+
+	default:
+
+		return ;
 	}
+
+	if(HAL_RCC_OscConfig(&Osc_Init) != HAL_OK){
+		Error_handler();
+	}
+
+	if(HAL_RCC_ClockConfig(&Clock_Init, flash_latency) != HAL_OK){
+		Error_handler();
+	}
+
+	/*Configure the systick timer interrupt frequency (for every 1 ms) */
+	uint32_t hclk_freq = HAL_RCC_GetHCLKFreq();
+	HAL_SYSTICK_Config(hclk_freq/1000);
+
+	/**Configure the Systick*/
+	HAL_SYSTICK_CLKSourceConfig(SYSTICK_CLKSOURCE_HCLK);
+
+	/* SysTick_IRQn interrupt configuration */
+	HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+
 }
 
-void SystemClockConfig(void){
+void GPIO_AnalogConfig(void){
 
+	GPIO_InitTypeDef GpioA;
 
+	uint32_t gpio_pins = GPIO_PIN_0 | GPIO_PIN_1 |GPIO_PIN_4 | 		\
+						 GPIO_PIN_5 | GPIO_PIN_6 |GPIO_PIN_7 |		\
+						 GPIO_PIN_8 | GPIO_PIN_9 |GPIO_PIN_10 |		\
+						 GPIO_PIN_11 | GPIO_PIN_12 |GPIO_PIN_13 | 	\
+						 GPIO_PIN_14 | GPIO_PIN_15;
+
+	GpioA.Pin = gpio_pins;
+	GpioA.Mode = GPIO_MODE_ANALOG;
+	HAL_GPIO_Init(GPIOA, &GpioA);
 }
 
 void GPIO_Init(void){
 
-	GPIO_InitTypeDef ledgpio;
-
-	/* GPIOA clock enable */
     __HAL_RCC_GPIOA_CLK_ENABLE();
 
-    /* High Level GPIO Initialization */
-	ledgpio.Pin = GPIO_PIN_1;
+    GPIO_InitTypeDef ledgpio ;
+	ledgpio.Pin = GPIO_PIN_5;
 	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
 	ledgpio.Pull = GPIO_NOPULL;
-	ledgpio.Speed = GPIO_SPEED_FREQ_LOW;
-
-	/* Init GPIO */
 	HAL_GPIO_Init(GPIOA, &ledgpio);
 
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, GPIO_PIN_RESET);
-}
-
-void TIMER3_Init(void){
-
-	/* Verify the spreadsheet "timer_period_calculation" to adjust Prescaler and Period values;
-	 * Prescaler value is stored in TIMx_PSC register (16 bits);
-	 * Period value is stored in TIMx_ARR register (16 bits - MAX 65535);
-	 * Choose a clock value for your microcontroller in the spreadsheet (TIMx_CLK);
-	 * Choose a time base required in seconds in the spreadsheet;
-	 * Check if the period exceeded the maximum value of TIMx_ARR register (16 bits - MAX 65535);
-	 * If yes, increase or decrease the prescaler in the spreedsheet until 0 < TIMx_ARR <= 65535;
-	 * This process will find how many ticks there exists for every period of clock;
-	 * For instance, if TIMx_CLK = 16MHz and prescaler = 0, so for every 0.0625us a tick happens;
-	 * In this case, what is the period value must be configured to get the time base of 100ms?;
-	 * This math results in 1600000 and should be placed in TIMx_ARR register, but this value is greater than 65535;
-	 * That's why you should increase or decrease the prescaler value.
-	 * */
-
-	/* Create a time base for 10ms with SYSCLK = 8MHz */
-	htimer3.Instance = TIM3;
-	htimer3.Init.Prescaler = 9;
-	htimer3.Init.Period = 8000-1;	// The update event happens after one time gap or one time period
-
-	if(HAL_TIM_Base_Init(&htimer3) != HAL_OK){
-		Error_Handler();
-	}
+	ledgpio.Pin = GPIO_PIN_12;
+	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
+	ledgpio.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &ledgpio);
 
 }
 
-void MX_USART2_UART_Init(void){
+void UART2_Init(void){
 
 	huart2.Instance = USART2;
-	huart2.Init.BaudRate = 115200;
+	huart2.Init.BaudRate = 921600;
 	huart2.Init.WordLength = UART_WORDLENGTH_8B;
 	huart2.Init.StopBits = UART_STOPBITS_1;
 	huart2.Init.Parity = UART_PARITY_NONE;
@@ -110,11 +248,34 @@ void MX_USART2_UART_Init(void){
 	huart2.Init.Mode = UART_MODE_TX;
 
 	if(HAL_UART_Init(&huart2) != HAL_OK){
-		Error_Handler();
-  	}
-
+		//There is a problem
+		Error_handler();
+	}
 }
 
-void Error_Handler(void){
+void TIMER6_Init(void){
+
+	htimer6.Instance = TIM6;
+	htimer6.Init.Prescaler = 4999;
+	htimer6.Init.Period = 100-1;
+
+	if(HAL_TIM_Base_Init(&htimer6) != HAL_OK){
+		Error_handler();
+	}
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+
+	if(HAL_UART_Transmit(&huart2,(uint8_t*)some_data,(uint16_t)strlen((char*)some_data),HAL_MAX_DELAY) != HAL_OK){
+		Error_handler();
+	 }
+}
+
+void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart){
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_12, GPIO_PIN_RESET);
+}
+
+void Error_handler(void){
 	while(1);
 }
