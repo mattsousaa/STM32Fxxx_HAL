@@ -1,0 +1,20 @@
+18:21:11 **** Incremental Build of configuration Debug for project WFE_Button ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "WFE_Button.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\WFE_Button\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="WFE_Button.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: WFE_Button.elf
+ 
+arm-none-eabi-objdump -h -S  WFE_Button.elf  > "WFE_Button.list"
+arm-none-eabi-objcopy  -O binary  WFE_Button.elf  "WFE_Button.bin"
+arm-none-eabi-size   WFE_Button.elf 
+   text	   data	    bss	    dec	    hex	filename
+   6660	     56	   1632	   8348	   209c	WFE_Button.elf
+Finished building: default.size.stdout
+ 
+Finished building: WFE_Button.bin
+ 
+Finished building: WFE_Button.list
+ 
+
+18:21:15 Build Finished. 0 errors, 0 warnings. (took 3s.696ms)
+
