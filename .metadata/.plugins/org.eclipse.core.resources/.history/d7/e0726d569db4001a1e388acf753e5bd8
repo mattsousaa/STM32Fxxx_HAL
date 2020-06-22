@@ -1,0 +1,11 @@
+#include "main.h"
+#include "stm32f1xx_it.h"
+
+void SysTick_Handler (void){
+	HAL_IncTick();
+	HAL_SYSTICK_IRQHandler();
+}
+
+void ADC_IRQHandler(void){
+	HAL_ADC_IRQHandler(&hadc1);
+}

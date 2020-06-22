@@ -1,0 +1,6 @@
+main.c:21:5:main	8	static
+main.c:38:6:SystemClockConfig	4	static
+main.c:43:6:ADC1_Init	24	static
+main.c:79:6:HAL_ADC_ConvCpltCallback	64	static
+main.c:97:6:UART2_Init	8	static
+main.c:113:6:Error_Handler	4	static

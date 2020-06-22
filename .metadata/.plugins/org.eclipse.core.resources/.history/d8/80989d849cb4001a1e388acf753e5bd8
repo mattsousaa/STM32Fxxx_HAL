@@ -1,0 +1,73 @@
+#include "main.h"
+#include "stm32f1xx_hal_tim.h"
+
+void SystemClockConfig(void);
+void MX_USART2_UART_Init(void);
+void GPIO_Init(void);
+void Error_Handler(void);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
+
+/* TIMER3 can be used for basic timer
+ * See STM32 cross-series timer overview document for more details */
+TIM_HandleTypeDef htimer3;
+
+int main(void){
+
+	HAL_Init();
+	SystemClockConfig();
+	GPIO_Init();
+
+	while(1);
+
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
+
+	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_2);
+
+}
+
+void SystemClockConfig(void){
+
+
+}
+
+void GPIO_Init(void){
+
+	GPIO_InitTypeDef ledgpio;
+
+	/* GPIOA clock enable */
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+
+    /* High Level GPIO Initialization */
+	ledgpio.Pin = GPIO_PIN_2;
+	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
+	ledgpio.Pull = GPIO_NOPULL;
+	ledgpio.Speed = GPIO_SPEED_FREQ_LOW;
+
+	/* Init GPIO */
+	HAL_GPIO_Init(GPIOA, &ledgpio);
+
+	/*Configure GPIO pin Output Level */
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_2, GPIO_PIN_RESET);
+}
+
+void MX_USART2_UART_Init(void){
+
+	huart2.Instance = USART2;
+	huart2.Init.BaudRate = 115200;
+	huart2.Init.WordLength = UART_WORDLENGTH_8B;
+	huart2.Init.StopBits = UART_STOPBITS_1;
+	huart2.Init.Parity = UART_PARITY_NONE;
+	huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	huart2.Init.Mode = UART_MODE_TX;
+
+	if(HAL_UART_Init(&huart2) != HAL_OK){
+		Error_Handler();
+  	}
+
+}
+
+void Error_Handler(void){
+	while(1);
+}

@@ -1,0 +1,23 @@
+22:40:08 **** Incremental Build of configuration Debug for project ADC_Sensor_TI ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "ADC_Sensor_TI.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\ADC_Sensor_TI\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Sensor_TI.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_Sensor_TI.elf
+ 
+arm-none-eabi-objdump -h -S  ADC_Sensor_TI.elf  > "ADC_Sensor_TI.list"
+arm-none-eabi-objcopy  -O ihex  ADC_Sensor_TI.elf  "ADC_Sensor_TI.hex"
+arm-none-eabi-objcopy  -O binary  ADC_Sensor_TI.elf  "ADC_Sensor_TI.bin"
+arm-none-eabi-size   ADC_Sensor_TI.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20620	    484	   1724	  22828	   592c	ADC_Sensor_TI.elf
+Finished building: default.size.stdout
+ 
+Finished building: ADC_Sensor_TI.hex
+Finished building: ADC_Sensor_TI.bin
+ 
+ 
+Finished building: ADC_Sensor_TI.list
+ 
+
+22:40:09 Build Finished. 0 errors, 0 warnings. (took 1s.751ms)
+

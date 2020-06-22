@@ -1,20 +1,20 @@
-20:17:55 **** Incremental Build of configuration Debug for project ADC_Sensor ****
+12:47:20 **** Incremental Build of configuration Debug for project ADC_Sensor_IT ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "ADC_Sensor.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\ADC_Sensor\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Sensor.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ADC_Sensor.elf
+arm-none-eabi-gcc -o "ADC_Sensor_IT.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\ADC_Sensor_IT\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Sensor_IT.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: ADC_Sensor_IT.elf
  
-arm-none-eabi-objdump -h -S  ADC_Sensor.elf  > "ADC_Sensor.list"
-arm-none-eabi-objcopy  -O ihex  ADC_Sensor.elf  "ADC_Sensor.hex"
-arm-none-eabi-objcopy  -O binary  ADC_Sensor.elf  "ADC_Sensor.bin"
-arm-none-eabi-size   ADC_Sensor.elf 
+arm-none-eabi-objdump -h -S  ADC_Sensor_IT.elf  > "ADC_Sensor_IT.list"
+arm-none-eabi-objcopy  -O ihex  ADC_Sensor_IT.elf  "ADC_Sensor_IT.hex"
+arm-none-eabi-objcopy  -O binary  ADC_Sensor_IT.elf  "ADC_Sensor_IT.bin"
+arm-none-eabi-size   ADC_Sensor_IT.elf 
    text	   data	    bss	    dec	    hex	filename
-  19868	    484	   1724	  22076	   563c	ADC_Sensor.elf
+  20348	    484	   1724	  22556	   581c	ADC_Sensor_IT.elf
 Finished building: default.size.stdout
  
-Finished building: ADC_Sensor.hex
-Finished building: ADC_Sensor.bin
+Finished building: ADC_Sensor_IT.hex
+Finished building: ADC_Sensor_IT.bin
  
  
-Finished building: ADC_Sensor.list
+Finished building: ADC_Sensor_IT.list
  
