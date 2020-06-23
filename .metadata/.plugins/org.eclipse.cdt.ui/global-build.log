@@ -1,20 +1,20 @@
-12:47:20 **** Incremental Build of configuration Debug for project ADC_Sensor_IT ****
+15:04:59 **** Incremental Build of configuration Debug for project PWM_DAC ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xE -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "ADC_Sensor_IT.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\ADC_Sensor_IT\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ADC_Sensor_IT.map" -Wl,--gc-sections -static -u _printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: ADC_Sensor_IT.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "PWM_DAC.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\PWM_DAC\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_DAC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PWM_DAC.elf
  
-arm-none-eabi-objdump -h -S  ADC_Sensor_IT.elf  > "ADC_Sensor_IT.list"
-arm-none-eabi-objcopy  -O ihex  ADC_Sensor_IT.elf  "ADC_Sensor_IT.hex"
-arm-none-eabi-objcopy  -O binary  ADC_Sensor_IT.elf  "ADC_Sensor_IT.bin"
-arm-none-eabi-size   ADC_Sensor_IT.elf 
+arm-none-eabi-objdump -h -S  PWM_DAC.elf  > "PWM_DAC.list"
+arm-none-eabi-objcopy  -O ihex  PWM_DAC.elf  "PWM_DAC.hex"
+arm-none-eabi-objcopy  -O binary  PWM_DAC.elf  "PWM_DAC.bin"
+arm-none-eabi-size   PWM_DAC.elf 
    text	   data	    bss	    dec	    hex	filename
-  20348	    484	   1724	  22556	   581c	ADC_Sensor_IT.elf
+  15420	     20	   1700	  17140	   42f4	PWM_DAC.elf
 Finished building: default.size.stdout
  
-Finished building: ADC_Sensor_IT.hex
-Finished building: ADC_Sensor_IT.bin
+Finished building: PWM_DAC.bin
+Finished building: PWM_DAC.hex
+Finished building: PWM_DAC.list
  
  
-Finished building: ADC_Sensor_IT.list
  
