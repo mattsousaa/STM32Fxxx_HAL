@@ -60,7 +60,7 @@ int main(void){
 	 * */
 
 	while(1){
-		for(uint8_t i = 0; i < 200; i++){
+		for (uint8_t i = 0; i < 200; i++) {
 			angle = ASR*(float)i;
 			/*
 			 * The C sinf() returns the sine of the given angle expressed in radians. So we need to convert the angular
