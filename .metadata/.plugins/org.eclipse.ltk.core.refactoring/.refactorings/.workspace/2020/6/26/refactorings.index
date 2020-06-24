@@ -4,3 +4,6 @@
 1592839125109	Delete resource 'TESTE'
 1592840562983	Delete resource 'ADC_Sensor_IT'
 1592927895328	Delete resource 'PWM_DAC'
+1593039856468	Rename resource 'DAC_LED_FADDING'
+1593039861673	Delete resource 'DAC_LED'
+1593039954379	Delete resource 'DAC_LED'

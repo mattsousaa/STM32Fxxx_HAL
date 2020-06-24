@@ -1,20 +1,18 @@
-15:04:59 **** Incremental Build of configuration Debug for project PWM_DAC ****
+20:32:39 **** Incremental Build of configuration Debug for project DAC_LED ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "PWM_DAC.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\PWM_DAC\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PWM_DAC.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: PWM_DAC.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc -o "DAC_LED.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\DAC_LED\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="DAC_LED.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: DAC_LED.elf
  
-arm-none-eabi-objdump -h -S  PWM_DAC.elf  > "PWM_DAC.list"
-arm-none-eabi-objcopy  -O ihex  PWM_DAC.elf  "PWM_DAC.hex"
-arm-none-eabi-objcopy  -O binary  PWM_DAC.elf  "PWM_DAC.bin"
-arm-none-eabi-size   PWM_DAC.elf 
+arm-none-eabi-objdump -h -S  DAC_LED.elf  > "DAC_LED.list"
+arm-none-eabi-objcopy  -O binary  DAC_LED.elf  "DAC_LED.bin"
+arm-none-eabi-size   DAC_LED.elf 
    text	   data	    bss	    dec	    hex	filename
-  15420	     20	   1700	  17140	   42f4	PWM_DAC.elf
+   9288	     20	   1652	  10960	   2ad0	DAC_LED.elf
 Finished building: default.size.stdout
  
-Finished building: PWM_DAC.bin
-Finished building: PWM_DAC.hex
-Finished building: PWM_DAC.list
- 
+Finished building: DAC_LED.bin
+Finished building: DAC_LED.list
  
  
