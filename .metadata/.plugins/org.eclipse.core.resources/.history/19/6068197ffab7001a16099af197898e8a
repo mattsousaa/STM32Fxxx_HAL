@@ -47,7 +47,7 @@ __IO uint8_t UserButtonStatus = RESET;
 /*
  * 180MHz HCLK, RUN mode, All Peri. Enabled: 74.4mA
  * 180MHz HCLK, RUN mode, All Peri. Disabled: 38.7mA
- * 180MHz HCLK, RUN mode, All Peri. Disabled + ART accelerator: 31.9mA
+ * 180MHz HCLK, RUN mode, All Peri. Disabled + ART accelerator: 38.7mA
  *
  * */
 

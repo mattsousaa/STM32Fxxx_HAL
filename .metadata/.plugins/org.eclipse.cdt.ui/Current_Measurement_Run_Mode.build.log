@@ -1,10 +1,23 @@
-18:14:41 **** Build of configuration Debug for project CURRENT_MEASUREMENT_RUN_MODE ****
+19:15:12 **** Incremental Build of configuration Debug for project CURRENT_MEASUREMENT_RUN_MODE ****
 make all 
+arm-none-eabi-gcc "../src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32 -DSTM32F4 -DSTM32F446RETx -DNUCLEO_F446RE -DDEBUG -DSTM32F446xx -DUSE_STDPERIPH_DRIVER -c -I"C:/Users/mateu/Documents/Curso STM32/MCU2/CURRENT_MEASUREMENT_RUN_MODE/StdPeriph_Driver/inc" -I"C:/Users/mateu/Documents/Curso STM32/MCU2/CURRENT_MEASUREMENT_RUN_MODE/inc" -I"C:/Users/mateu/Documents/Curso STM32/MCU2/CURRENT_MEASUREMENT_RUN_MODE/CMSIS/device" -I"C:/Users/mateu/Documents/Curso STM32/MCU2/CURRENT_MEASUREMENT_RUN_MODE/CMSIS/core" -O0 -ffunction-sections -Wall -fstack-usage -MMD -MP -MF"src/main.d" -MT"src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "src/main.o"
+arm-none-eabi-gcc -o "CURRENT_MEASUREMENT_RUN_MODE.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\CURRENT_MEASUREMENT_RUN_MODE\LinkerScript.ld" --specs=nosys.specs -Wl,-Map="CURRENT_MEASUREMENT_RUN_MODE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: CURRENT_MEASUREMENT_RUN_MODE.elf
+ 
+arm-none-eabi-objdump -h -S  CURRENT_MEASUREMENT_RUN_MODE.elf  > "CURRENT_MEASUREMENT_RUN_MODE.list"
+Finished building: CURRENT_MEASUREMENT_RUN_MODE.list
+ 
+arm-none-eabi-objcopy  -O ihex  CURRENT_MEASUREMENT_RUN_MODE.elf  "CURRENT_MEASUREMENT_RUN_MODE.hex"
+Finished building: CURRENT_MEASUREMENT_RUN_MODE.hex
+ 
+arm-none-eabi-objcopy  -O binary  CURRENT_MEASUREMENT_RUN_MODE.elf  "CURRENT_MEASUREMENT_RUN_MODE.bin"
+Finished building: CURRENT_MEASUREMENT_RUN_MODE.bin
+ 
 arm-none-eabi-size   CURRENT_MEASUREMENT_RUN_MODE.elf 
    text	   data	    bss	    dec	    hex	filename
   12260	    132	   3100	  15492	   3c84	CURRENT_MEASUREMENT_RUN_MODE.elf
 Finished building: default.size.stdout
  
 
-18:14:45 Build Finished. 0 errors, 0 warnings. (took 4s.11ms)
+19:15:14 Build Finished. 0 errors, 0 warnings. (took 2s.558ms)
 

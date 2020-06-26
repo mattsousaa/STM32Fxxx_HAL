@@ -32,6 +32,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 CURRENT_MEASUREMENT_RUN_MODE.list \
 
+OBJCOPY_HEX += \
+CURRENT_MEASUREMENT_RUN_MODE.hex \
+
 OBJCOPY_BIN += \
 CURRENT_MEASUREMENT_RUN_MODE.bin \
 
@@ -55,6 +58,11 @@ CURRENT_MEASUREMENT_RUN_MODE.list: $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CURRENT_MEASUREMENT_RUN_MODE.hex: $(EXECUTABLES)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "CURRENT_MEASUREMENT_RUN_MODE.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 CURRENT_MEASUREMENT_RUN_MODE.bin: $(EXECUTABLES)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "CURRENT_MEASUREMENT_RUN_MODE.bin"
 	@echo 'Finished building: $@'
@@ -65,7 +73,7 @@ clean:
 	-$(RM) *
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 .PHONY: all clean dependents
 .SECONDARY:

@@ -1,5 +1,5 @@
 
-Current_Measurement_Run_Mode.elf:     file format elf32-littlearm
+CURRENT_MEASUREMENT_RUN_MODE.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  000151ab  00000000  00000000  0002f058  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0000a87d  00000000  00000000  00044203  2**0
+ 17 .debug_line   0000a7cd  00000000  00000000  00044203  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    000757f3  00000000  00000000  0004ea80  2**0
+ 18 .debug_str    00075840  00000000  00000000  0004e9d0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  000c4273  2**0
+ 19 .comment      0000007b  00000000  00000000  000c4210  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002af4  00000000  00000000  000c42f0  2**2
+ 20 .debug_frame  00002af4  00000000  00000000  000c428c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -6754,7 +6754,7 @@ int main(void)
 	LedsConfig();
  80029fa:	f000 f869 	bl	8002ad0 <LedsConfig>
 
-	/* Configure Wakeup pin  */
+	/* Configure Wakeup pin (interrupt) */
 	ButtonPinInt_configuration();
  80029fe:	f000 f883 	bl	8002b08 <ButtonPinInt_configuration>
 
