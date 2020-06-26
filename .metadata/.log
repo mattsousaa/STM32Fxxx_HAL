@@ -1065,3 +1065,6 @@ org.eclipse.core.runtime.CoreException: Cannot determine URI for '/Current_Measu
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-06-26 18:14:42.232
 !MESSAGE Indexed 'CURRENT_MEASUREMENT_RUN_MODE' (54 sources, 106 headers) in 4,63 sec: 9.387 declarations; 37.844 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-06-26 19:41:00.950
+!MESSAGE Indexed 'Current_Measurement_Run_Mode' (54 sources, 106 headers) in 1,68 sec: 9.387 declarations; 37.844 references; 0 unresolved inclusions; 1 syntax errors; 0 unresolved names (0%)
