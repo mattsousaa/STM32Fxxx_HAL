@@ -1,4 +1,4 @@
-19:45:40 **** Build of configuration Debug for project Current_Measurement_Run_Mode ****
+19:53:55 **** Build of configuration Debug for project Current_Measurement_Run_Mode ****
 make all 
 arm-none-eabi-size   Current_Measurement_Run_Mode.elf 
    text	   data	    bss	    dec	    hex	filename
@@ -6,5 +6,5 @@ arm-none-eabi-size   Current_Measurement_Run_Mode.elf
 Finished building: default.size.stdout
  
 
-19:45:41 Build Finished. 0 errors, 0 warnings. (took 1s.529ms)
+19:53:56 Build Finished. 0 errors, 0 warnings. (took 1s.602ms)
 
