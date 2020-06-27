@@ -40,6 +40,10 @@
 #include "main.h"
 #include "pwr_modes.h"
 
+/*
+ * 180MHz HCLK, RUN mode, All Peri. Disabled: 13mA
+ *
+ * */
 
 __IO uint32_t uwCounter = 0x00;
 __IO uint8_t UserButtonStatus = RESET;

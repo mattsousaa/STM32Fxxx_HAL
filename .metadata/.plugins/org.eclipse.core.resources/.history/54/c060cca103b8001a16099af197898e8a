@@ -40,16 +40,14 @@
 #include "main.h"
 #include "pwr_modes.h"
 
+/*
+ * 180MHz HCLK, RUN mode, All Peri. Enabled: 13mA
+ *
+ * */
 
 __IO uint32_t uwCounter = 0x00;
 __IO uint8_t UserButtonStatus = RESET;
 
-/*
- * 180MHz HCLK, RUN mode, All Peri. Enabled: 74.4mA
- * 180MHz HCLK, RUN mode, All Peri. Disabled: 38.7mA
- * 180MHz HCLK, RUN mode, All Peri. Disabled + ART accelerator: 38.7mA
- *
- * */
 
 static void Mode_Exit (void);
 static void LedsConfig (void);
@@ -65,17 +63,17 @@ int main(void)
 	/* Enable PWR APB1 Clock */
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_PWR, ENABLE);
 
-	/* Configure GPIOs as analog inputs */
+	/* Configure CPIOs as analog inputs */
 	GPIO_AnalogConfig ();
 
 	/*Configure Leds GPIOs */
 	LedsConfig();
 
-	/* Configure Wakeup pin (interrupt) */
+	/* Configure Wakeup pin  */
 	ButtonPinInt_configuration();
 
-	/* Execute defined Run modes */
-	Measure_Run ();
+	/* Execute defined Sleep modes */
+	Measure_Sleep ();
 
 	/* Infinite loop */
 	while (1)
@@ -85,83 +83,66 @@ int main(void)
 }
 
 
-/* USER CODE BEGIN 4 */
 /**
-* @brief  Configure the Run modes exection routines.
+* @brief  Configure the Sleep modes exection routines.
 * @param  None
 * @retval None
 */
-void Measure_Run (void)
+void Measure_Sleep (void)
 {
-#if defined (RUN_MODE)
 
-#if defined (RunPeriphDisabled180Mhz)
+#if defined (SleepPeriphDisabled180Mhz)
 
-  /* Wait User push button to enter Run mode */
-  WaitUser_PushBotton ();
+  /* Wait User puch button to enter Sleep mode */
+  WaitUser_PushButton ();
 
-  /*Enter Power mode */
-  PWR_RunPeriphDisabled180Mhz();
+  PWR_SleepPeriphDisabled180Mhz();
 
-  /* Perform CoreMark */
-  main_core(); //60 sec
-
-  /*Exit from previous mode*/
-  Mode_Exit ();//
-
-#endif /* RunPeriphDisabled180Mhz && STM32F429_439xx */
-
-#if defined (RunPeriphEnabled180Mhz)
-
-  /* Wait User push buttom to enter Run mode */
-  WaitUser_PushBotton ();
-
-  /*Enter Power mode */
-  PWR_RunPeriphEnabled180Mhz();
-
-  /* Perform CoreMark */
-  main_core(); //60 sec
-
-  /*Exit from previous mode*/
+  /* Exit from sleep mode  */
   Mode_Exit ();
 
-#endif /* RunPeriphEnabled180Mhz && defined STM32F429_439xx */
+#endif /* SleepPeriphDisabled180Mhz */
 
-#if defined (RunPeriphDisabled60Mhz)
+#if defined (SleepPeriphEnabled180Mhz)
 
-  /* Wait User push buttom to enter Run mode */
-  WaitUser_PushBotton ();
+  /* Wait User puch buttom to enter Sleep mode */
+  WaitUser_PushButton ();
 
-  /*Enter Power mode */
-  PWR_RunPeriphDisabled60Mhz();
+  PWR_SleepPeriphEnabled180Mhz();
 
-  /* Perform CoreMark */
-  main_core(); //180 seconds
-
-  /*Exit from previous mode*/
+  /* Exit from sleep mode  */
   Mode_Exit ();
 
-#endif /* RunPeriphDisabled60Mhz */
+#endif /* SleepPeriphEnabled180Mhz  */
 
-#if defined (RunPeriphEnabled60Mhz)
 
-  /* Wait User push buttom to enter Run mode */
-  WaitUser_PushBotton ();
+#if defined SleepPeriphDisabled60Mhz
 
-  /*Enter Power mode */
-  PWR_RunPeriphEnabled60Mhz();
+  /* Wait User puch buttom to enter Sleep mode */
+  WaitUser_PushButton ();
 
-  /* Perform CoreMark */
-  main_core();
+  PWR_SleepPeriphDisabled60Mhz();
 
-  /*Exit from previous mode*/
+  /* Exit from sleep mode  */
   Mode_Exit ();
 
-#endif /* RunPeriphEnabled60Mhz */
+#endif /* SleepPeriphDisabled60Mhz */
 
-#endif /* RUN_MODE */
+#if defined SleepPeriphEnabled60Mhz
+
+  /* Wait User puch buttom to enter Sleep mode */
+  WaitUser_PushButton ();
+
+  PWR_SleepPeriphEnabled60Mhz();
+
+  /* Exit from sleep mode  */
+  Mode_Exit ();
+
+#endif /* SleepPeriphEnabled60Mhz */
 
 }
+
+
 
 /**
 * @brief  Configure All GPIO as analog input.
@@ -200,7 +181,6 @@ void GPIO_AnalogConfig (void)
 
 	  RCC_AHB1PeriphClockCmd (RCC_AHB1Periph_GPIOF | RCC_AHB1Periph_GPIOG, DISABLE);
 }
-
 
 /**
 * @brief  Configure LED gpio of NUCLEO-F446RE GPIOA.5
@@ -294,7 +274,7 @@ void ButtonPinInt_configuration(void)
 }
 
 //Just waits until user presses on board push button
-void WaitUser_PushBotton (void)
+void WaitUser_PushButton (void)
 {
 	GPIO_SetBits(GPIOA, GPIO_Pin_5);
 	while(UserButtonStatus != SET); //wait here

@@ -2,6 +2,20 @@
 <section name="Workbench">
 	<section name="ExternalProjectImportWizard">
 		<item key="WizardProjectsImportPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
+		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\mateu\Documents\Curso STM32\MCU2\Current_Measurement_Run_Mode"/>
+			<item value="C:\Users\mateu\Documents\Curso STM32\MCU2\Current_Measurement_Stop_Mode"/>
+			<item value="C:\Users\mateu\Documents\Curso STM32\MCU2\Current_Measurement_Standby_Mode"/>
+			<item value="C:\Users\mateu\Documents\Curso STM32\MCU2\Current_Measurement_Sleep_Mode"/>
+			<item value="C:\Users\mateu\Documents\Curso STM32\MCU2\CURRENT_MEASUREMENT_RUN_MODE"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
 	</section>
 	<section name="ChooseWorkspaceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="618"/>

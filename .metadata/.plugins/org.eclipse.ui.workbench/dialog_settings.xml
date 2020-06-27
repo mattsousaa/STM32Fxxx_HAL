@@ -17,7 +17,7 @@
 		</list>
 	</section>
 	<section name="ImportExportAction">
-		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.e4.ui.importer.wizard"/>
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
 		</list>
