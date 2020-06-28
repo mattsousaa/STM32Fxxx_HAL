@@ -55,10 +55,10 @@
 /* Uncomment macro(s) to select sub-mode(s) to be measured for each power mode*/
 
 /*----------------------- STOP sub-modes selection ---------------------------*/
-//#define StopMainRegFlashStop
+#define StopMainRegFlashStop
 //#define StopMainRegFlashPwrDown
 //#define StopLowPwrRegFlashStop
-#define StopLowPwrRegFlashPwrDown
+//#define StopLowPwrRegFlashPwrDown
 //#define StopMainRegUnderDriveFlashPwrDown
 //#define StopLowPwrRegUnderDriveFlashPwrDown
 

@@ -48,6 +48,12 @@ __IO uint8_t UserButtonStatus = RESET;
 static void Mode_Exit (void);
 static void LedsConfig (void);
 
+/*
+ * STOP + MR ON + FLASH ON = 200uA
+ * STOP + LPR ON + FLASH Power Down = 100uA
+ *
+ * */
+
 /**
   * @brief  The application entry point.
   *
@@ -97,7 +103,7 @@ void Measure_Stop (void)
 
   PWR_StopMainRegFlashStop();
 
-  /* Exit from STOP mode  */
+  /* Exit from STOP mode */
   Mode_Exit ();
 
   UserButtonStatus = RESET;

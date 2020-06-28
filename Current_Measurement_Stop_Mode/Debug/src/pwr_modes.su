@@ -1,0 +1,8 @@
+pwr_modes.c:52:6:DisableAllAHBxAPBxPeriClocks	4	static
+pwr_modes.c:63:6:EnableAllAHBxAPBxPeriClocks	4	static
+pwr_modes.c:87:6:PWR_StopMainRegFlashStop	8	static
+pwr_modes.c:115:6:PWR_StopMainRegFlashPwrDown	8	static
+pwr_modes.c:143:6:PWR_StopLowPwrRegFlashStop	8	static
+pwr_modes.c:171:6:PWR_StopLowPwrRegFlashPwrDown	8	static
+pwr_modes.c:199:6:PWR_StopMainRegUnderDriveFlashPwrDown	8	static
+pwr_modes.c:229:6:PWR_StopLowPwrRegUnderDriveFlashPwrDown	8	static
