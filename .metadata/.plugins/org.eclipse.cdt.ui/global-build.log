@@ -1,20 +1,17 @@
-19:57:56 **** Incremental Build of configuration Debug for project teste_WFI ****
+16:24:04 **** Incremental Build of configuration Debug for project BkupSRAM_Standby ****
 make -j4 all 
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F103x6 -DDEBUG -c -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "teste_WFI.elf" @"objects.list"   -mcpu=cortex-m3 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\teste_WFI\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="teste_WFI.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: teste_WFI.elf
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "BkupSRAM_Standby.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\BkupSRAM_Standby\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BkupSRAM_Standby.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BkupSRAM_Standby.elf
  
-arm-none-eabi-objdump -h -S  teste_WFI.elf  > "teste_WFI.list"
-arm-none-eabi-objcopy  -O ihex  teste_WFI.elf  "teste_WFI.hex"
-arm-none-eabi-objcopy  -O binary  teste_WFI.elf  "teste_WFI.bin"
-arm-none-eabi-size   teste_WFI.elf 
+arm-none-eabi-objdump -h -S  BkupSRAM_Standby.elf  > "BkupSRAM_Standby.list"
+arm-none-eabi-objcopy  -O binary  BkupSRAM_Standby.elf  "BkupSRAM_Standby.bin"
+arm-none-eabi-size   BkupSRAM_Standby.elf 
    text	   data	    bss	    dec	    hex	filename
-   6532	     56	   1696	   8284	   205c	teste_WFI.elf
+  12096	    120	   1648	  13864	   3628	BkupSRAM_Standby.elf
 Finished building: default.size.stdout
-Finished building: teste_WFI.bin
-Finished building: teste_WFI.hex
-Finished building: teste_WFI.list
  
- 
+Finished building: BkupSRAM_Standby.bin
+Finished building: BkupSRAM_Standby.list
  
  
