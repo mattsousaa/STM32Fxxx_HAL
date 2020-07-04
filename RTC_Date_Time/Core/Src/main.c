@@ -49,14 +49,13 @@ int main(void){
 
 	printmsg("This is RTC calendar Test program \r\n");
 
-#if 0
+#if 1
 	if(__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET){
 		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
 		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
 		printmsg("Woke up from STANDBY\r\n");
 		HAL_GPIO_EXTI_Callback(0);
 	}
-#endif
 
 	//RTC_CalendarConfig();
 
@@ -68,6 +67,7 @@ int main(void){
 
 	while(1);
 
+#endif
 	return 0;
 }
 
@@ -232,7 +232,7 @@ void UART2_Init(void){
 	}
 }
 
-char* getDayofweek(uint8_t number){
+char *getDayofweek(uint8_t number){
 
 	// Monday starts from 1
 	char *weekday[] = {"Monday", "TuesDay", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
