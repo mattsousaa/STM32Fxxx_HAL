@@ -1,0 +1,20 @@
+17:35:36 **** Incremental Build of configuration Debug for project RTC_AlarmA ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "RTC_AlarmA.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\RTC_AlarmA\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTC_AlarmA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: RTC_AlarmA.elf
+ 
+arm-none-eabi-objdump -h -S  RTC_AlarmA.elf  > "RTC_AlarmA.list"
+arm-none-eabi-objcopy  -O binary  RTC_AlarmA.elf  "RTC_AlarmA.bin"
+arm-none-eabi-size   RTC_AlarmA.elf 
+   text	   data	    bss	    dec	    hex	filename
+  16972	    120	   1680	  18772	   4954	RTC_AlarmA.elf
+Finished building: default.size.stdout
+ 
+Finished building: RTC_AlarmA.bin
+ 
+Finished building: RTC_AlarmA.list
+ 
+
+17:35:39 Build Finished. 0 errors, 0 warnings. (took 3s.618ms)
+

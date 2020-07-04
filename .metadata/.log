@@ -1620,3 +1620,6 @@ java.lang.RuntimeException
 	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2308)
 	at org.eclipse.core.internal.events.NotificationManager$NotifyJob.run(NotificationManager.java:44)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-07-04 16:50:12.828
+!MESSAGE Indexed 'RTC_AlarmA' (24 sources, 107 headers) in 3,63 sec: 8.303 declarations; 35.840 references; 2 unresolved inclusions; 29 syntax errors; 145 unresolved names (0,33%)
