@@ -56,16 +56,19 @@ int main(void) {
 
 	pBackupSRAMbase = (uint32_t*)BKPSRAM_BASE;
 
-	//Enable clock for PWR Controller block
+	// Enable clock for PWR Controller block
 	__HAL_RCC_PWR_CLK_ENABLE();
 
-	if(__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET){
-		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
-		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	// Find out the cause for reset
+	if(__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET){	// Device has been in Standby mode
+		// Reset was actually caused due to the Standby mode
+		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB); // Cleared by the software
+		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU); // Clear the Wakeup flag caused by wakeup pin
 
 		printmsg("woke up from the standby mode\r\n");
 		uint8_t data = (uint8_t) *pBackupSRAMbase;
-		if(data != 'H'){
+
+		if(data != 'H'){ // If backup voltage regulator is not set, then the backup SRAM data will be lost
 			printmsg("Backup SRAM data is lost\r\n");
 		} else{
 			printmsg("Backup SRAM data is safe \r\n");
@@ -80,16 +83,20 @@ int main(void) {
 	printmsg("Press the user button to enter standby mode\r\n");
 	while(HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13) != GPIO_PIN_RESET);
 
-	//when user pushes the user button, it comes here
+	// When user pushes the user button, it comes here
 	printmsg("Going to Standby mode\r\n");
 
-	//Enable the wakeup pin 1 in pwr_csr register
+	// Enable the wakeup pin 1 in pwr_csr register
 	HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
 
-	//Enable backup voltage reg.
+	// Enable backup voltage reg. in order to preserve the contents of the backup SRAM even if the micro is sleeping in Standby mode
 	HAL_PWREx_EnableBkUpReg();
 
+	// When the micro wakes up from the Stand By mode it undergoes system reset
 	HAL_PWR_EnterSTANDBYMode();
+
+	// It will not resume from here.
+	// That means a reset handler will run and from there it will execute the main again
 
 	while(1);
 
@@ -262,30 +269,6 @@ void UART2_Init(void){
 		Error_handler();
 	}
 
-}
-
-char* getDayofweek(uint8_t number){
-	char *weekday[] = {"Monday", "TuesDay", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-
-	return weekday[number - 1];
-}
-
-/**
- * @brief  EXTI line detection callbacks.
- * @param  GPIO_Pin Specifies the pins connected EXTI line
- * @retval None
- */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
-	RTC_TimeTypeDef RTC_TimeRead;
-	RTC_DateTypeDef RTC_DateRead;
-
-	HAL_RTC_GetTime(&hrtc, &RTC_TimeRead, RTC_FORMAT_BIN);
-
-	HAL_RTC_GetDate(&hrtc, &RTC_DateRead, RTC_FORMAT_BIN);
-
-	printmsg("Current Time is : %02d:%02d:%02d\r\n", RTC_TimeRead.Hours,
-			RTC_TimeRead.Minutes, RTC_TimeRead.Seconds);
-	printmsg("Current Date is : %02d-%2d-%2d  <%s> \r\n", RTC_DateRead.Month,RTC_DateRead.Date, RTC_DateRead.Year, getDayofweek(RTC_DateRead.WeekDay));
 }
 
 void Error_handler(void){
