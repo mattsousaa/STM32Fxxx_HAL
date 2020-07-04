@@ -1,17 +1,18 @@
-21:21:33 **** Incremental Build of configuration Debug for project RTC_Date_Time ****
+13:14:21 **** Incremental Build of configuration Debug for project BkupSRAM_Standby ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "RTC_Date_Time.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\RTC_Date_Time\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTC_Date_Time.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RTC_Date_Time.elf
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F446xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Core/Inc -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc -o "BkupSRAM_Standby.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\mateu\Documents\Curso STM32\MCU2\BkupSRAM_Standby\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="BkupSRAM_Standby.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: BkupSRAM_Standby.elf
  
-arm-none-eabi-objdump -h -S  RTC_Date_Time.elf  > "RTC_Date_Time.list"
-arm-none-eabi-objcopy  -O binary  RTC_Date_Time.elf  "RTC_Date_Time.bin"
-arm-none-eabi-size   RTC_Date_Time.elf 
+arm-none-eabi-objdump -h -S  BkupSRAM_Standby.elf  > "BkupSRAM_Standby.list"
+arm-none-eabi-objcopy  -O binary  BkupSRAM_Standby.elf  "BkupSRAM_Standby.bin"
+arm-none-eabi-size   BkupSRAM_Standby.elf 
    text	   data	    bss	    dec	    hex	filename
-  14688	    120	   1680	  16488	   4068	RTC_Date_Time.elf
+  12172	    120	   1648	  13940	   3674	BkupSRAM_Standby.elf
 Finished building: default.size.stdout
  
-Finished building: RTC_Date_Time.bin
+Finished building: BkupSRAM_Standby.bin
  
-Finished building: RTC_Date_Time.list
+Finished building: BkupSRAM_Standby.list
  

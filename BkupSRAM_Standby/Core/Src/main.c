@@ -191,47 +191,6 @@ void SystemClock_Config_HSE(uint8_t clock_freq){
 
 }
 
-void RTC_Init(void)
-{
-   hrtc.Instance = RTC;
-   hrtc.Init.HourFormat =RTC_HOURFORMAT_12;
-   hrtc.Init.AsynchPrediv = 0x7F;
-   hrtc.Init.SynchPrediv = 0xFF;
-   hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
-   hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_LOW;
-   hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
-
-   if( HAL_RTC_Init(&hrtc) != HAL_OK)
-   {
-	   Error_handler();
-   }
-}
-
-
-
-void  RTC_CalendarConfig(void)
-{
-	RTC_TimeTypeDef RTC_TimeInit;
-	RTC_DateTypeDef RTC_DateInit;
-	//this function does RTC Calendar Config
-	//Lets configure the calendar for Time : 12:11:10 PM Date : 12 june 2018 TUESDAY
-
-	RTC_TimeInit.Hours = 12;
-	RTC_TimeInit.Minutes = 11;
-	RTC_TimeInit.Seconds = 10;
-	RTC_TimeInit.TimeFormat = RTC_HOURFORMAT12_PM;
-	HAL_RTC_SetTime(&hrtc, &RTC_TimeInit,RTC_FORMAT_BIN);
-
-
-	RTC_DateInit.Date = 12;
-	RTC_DateInit.Month = RTC_MONTH_JUNE;
-	RTC_DateInit.Year = 18;
-	RTC_DateInit.WeekDay = RTC_WEEKDAY_TUESDAY;
-
-	HAL_RTC_SetDate(&hrtc,&RTC_DateInit,RTC_FORMAT_BIN);
-
-}
-
 void GPIO_Init(void){
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
