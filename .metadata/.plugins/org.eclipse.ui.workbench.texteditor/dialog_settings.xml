@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="__HAL_RCC_GPIOC_CLK_ENABLE"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="getDay"/>
+			<item value="RCC_RTC_Clock_Source"/>
 			<item value="sleep"/>
 			<item value="DAC_trigger_selection"/>
 			<item value="ADC_EOCSelection"/>
@@ -21,8 +23,6 @@
 			<item value="htimer3"/>
 			<item value="TIM_Counter_Mode"/>
 			<item value="HAL_TIM_PWM_MspInit"/>
-			<item value="HAL_TIM_PWM_Init"/>
-			<item value="HAL_TIM_OC_DelayElapsedCallback"/>
 		</list>
 		<list key="replacehistory">
 			<item value="htimer2"/>
@@ -38,8 +38,8 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1117"/>
-		<item key="DIALOG_Y_ORIGIN" value="170"/>
+		<item key="DIALOG_X_ORIGIN" value="1052"/>
+		<item key="DIALOG_Y_ORIGIN" value="230"/>
 		<item key="DIALOG_WIDTH" value="369"/>
 		<item key="DIALOG_HEIGHT" value="460"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

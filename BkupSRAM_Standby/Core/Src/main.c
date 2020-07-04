@@ -184,23 +184,73 @@ void SystemClock_Config_HSE(uint8_t clock_freq){
 
 }
 
+void RTC_Init(void)
+{
+   hrtc.Instance = RTC;
+   hrtc.Init.HourFormat =RTC_HOURFORMAT_12;
+   hrtc.Init.AsynchPrediv = 0x7F;
+   hrtc.Init.SynchPrediv = 0xFF;
+   hrtc.Init.OutPut = RTC_OUTPUT_DISABLE;
+   hrtc.Init.OutPutPolarity = RTC_OUTPUT_POLARITY_LOW;
+   hrtc.Init.OutPutType = RTC_OUTPUT_TYPE_OPENDRAIN;
+
+   if( HAL_RTC_Init(&hrtc) != HAL_OK)
+   {
+	   Error_handler();
+   }
+}
+
+
+
+void  RTC_CalendarConfig(void)
+{
+	RTC_TimeTypeDef RTC_TimeInit;
+	RTC_DateTypeDef RTC_DateInit;
+	//this function does RTC Calendar Config
+	//Lets configure the calendar for Time : 12:11:10 PM Date : 12 june 2018 TUESDAY
+
+	RTC_TimeInit.Hours = 12;
+	RTC_TimeInit.Minutes = 11;
+	RTC_TimeInit.Seconds = 10;
+	RTC_TimeInit.TimeFormat = RTC_HOURFORMAT12_PM;
+	HAL_RTC_SetTime(&hrtc, &RTC_TimeInit,RTC_FORMAT_BIN);
+
+
+	RTC_DateInit.Date = 12;
+	RTC_DateInit.Month = RTC_MONTH_JUNE;
+	RTC_DateInit.Year = 18;
+	RTC_DateInit.WeekDay = RTC_WEEKDAY_TUESDAY;
+
+	HAL_RTC_SetDate(&hrtc,&RTC_DateInit,RTC_FORMAT_BIN);
+
+}
+
 void GPIO_Init(void){
 
-    __HAL_RCC_GPIOC_CLK_ENABLE();
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	__HAL_RCC_GPIOC_CLK_ENABLE();
 
-	GPIO_InitTypeDef  buttongpio;
+	GPIO_InitTypeDef ledgpio, buttongpio;
+
+	ledgpio.Pin = GPIO_PIN_5;
+	ledgpio.Mode = GPIO_MODE_OUTPUT_PP;
+	ledgpio.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &ledgpio);
 
 	buttongpio.Pin = GPIO_PIN_13;
-	buttongpio.Mode = GPIO_MODE_INPUT;
+	buttongpio.Mode = GPIO_MODE_IT_FALLING;
 	buttongpio.Pull = GPIO_NOPULL;
-	HAL_GPIO_Init(GPIOC,&buttongpio);
+	HAL_GPIO_Init(GPIOC, &buttongpio);
+
+	HAL_NVIC_SetPriority(EXTI15_10_IRQn, 15, 0);
+	HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 
 void UART2_Init(void){
 
 	huart2.Instance = USART2;
-	huart2.Init.BaudRate =115200;
+	huart2.Init.BaudRate = 115200;
 	huart2.Init.WordLength = UART_WORDLENGTH_8B;
 	huart2.Init.StopBits = UART_STOPBITS_1;
 	huart2.Init.Parity = UART_PARITY_NONE;
@@ -211,6 +261,31 @@ void UART2_Init(void){
 		//There is a problem
 		Error_handler();
 	}
+
+}
+
+char* getDayofweek(uint8_t number){
+	char *weekday[] = {"Monday", "TuesDay", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+
+	return weekday[number - 1];
+}
+
+/**
+ * @brief  EXTI line detection callbacks.
+ * @param  GPIO_Pin Specifies the pins connected EXTI line
+ * @retval None
+ */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin){
+	RTC_TimeTypeDef RTC_TimeRead;
+	RTC_DateTypeDef RTC_DateRead;
+
+	HAL_RTC_GetTime(&hrtc, &RTC_TimeRead, RTC_FORMAT_BIN);
+
+	HAL_RTC_GetDate(&hrtc, &RTC_DateRead, RTC_FORMAT_BIN);
+
+	printmsg("Current Time is : %02d:%02d:%02d\r\n", RTC_TimeRead.Hours,
+			RTC_TimeRead.Minutes, RTC_TimeRead.Seconds);
+	printmsg("Current Date is : %02d-%2d-%2d  <%s> \r\n", RTC_DateRead.Month,RTC_DateRead.Date, RTC_DateRead.Year, getDayofweek(RTC_DateRead.WeekDay));
 }
 
 void Error_handler(void){
