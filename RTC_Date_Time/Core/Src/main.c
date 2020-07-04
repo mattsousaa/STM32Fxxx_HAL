@@ -47,27 +47,34 @@ int main(void){
 
 	RTC_Init();
 
-	printmsg("This is RTC calendar Test program \r\n");
+	printmsg("This is RTC calendar Test program\r\n");
 
-#if 1
-	if(__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET){
-		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);
-		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+	// Find out the cause for reset
+	if(__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET){	// Device has been in Standby mode
+		// Reset was actually caused due to the Standby mode
+		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_SB);	// Cleared by the software
+		__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);	// Clear the Wakeup flag caused by wakeup pin
 		printmsg("Woke up from STANDBY\r\n");
-		HAL_GPIO_EXTI_Callback(0);
+		// When the micro is under Standby mode, you cannot use the button interrupt
+		HAL_GPIO_EXTI_Callback(0);	// Just calling the callback from here itself to print some details
 	}
 
-	//RTC_CalendarConfig();
+	RTC_CalendarConfig();
 
 	//Enable the wakeup pin 1 in pwr_csr register
 	HAL_PWR_EnableWakeUpPin(PWR_WAKEUP_PIN1);
 
 	printmsg("Went to STANDBY mode\r\n");
+	// When the micro wakes up from the Stand By mode it undergoes system reset
 	HAL_PWR_EnterSTANDBYMode();
+
+	// It will not resume from here.
+	// That means a reset handler will run and from there it will execute the main again
+
+	// LSE will not be affected by the Standby mode if it's on
 
 	while(1);
 
-#endif
 	return 0;
 }
 
@@ -178,7 +185,7 @@ void RTC_CalendarConfig(void){
 	RTC_TimeTypeDef RTC_TimeInit;
 	RTC_DateTypeDef RTC_DateInit;
 	//this function does RTC Calendar Config
-	//Lets configure the calendar for Time: 10:03:18 PM Date: 03 July 2020 FRIDAY
+	//Lets configure the calendar for Time: 10:03:18 PM Date: 04 July 2020 SATURDAY
 
 	RTC_TimeInit.Hours = 10;
 	RTC_TimeInit.Minutes = 03;
@@ -186,10 +193,10 @@ void RTC_CalendarConfig(void){
 	RTC_TimeInit.TimeFormat = RTC_HOURFORMAT12_PM;
 	HAL_RTC_SetTime(&hrtc, &RTC_TimeInit, RTC_FORMAT_BIN);
 
-	RTC_DateInit.Date = 12;
-	RTC_DateInit.Month = RTC_MONTH_JUNE;
-	RTC_DateInit.Year = 18;
-	RTC_DateInit.WeekDay = RTC_WEEKDAY_TUESDAY;
+	RTC_DateInit.Date = 04;
+	RTC_DateInit.Month = RTC_MONTH_JULY;
+	RTC_DateInit.Year = 20;
+	RTC_DateInit.WeekDay = RTC_WEEKDAY_SATURDAY;
 	HAL_RTC_SetDate(&hrtc, &RTC_DateInit, RTC_FORMAT_BIN);
 
 }
