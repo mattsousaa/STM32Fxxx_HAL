@@ -45,4 +45,4 @@ Applications developed during course [MCU2](https://www.udemy.com/course/microco
 Pull requests are welcome. If you discover any bug/issue feel free to report it and let me know if you want to.
 
 ## License
-[MIT](https://github.com/mattsousaa/STM32F4xx_drivers/blob/master/LICENSE)
+[MIT](https://github.com/mattsousaa/STM32Fxxx_HAL/blob/master/LICENSE)
