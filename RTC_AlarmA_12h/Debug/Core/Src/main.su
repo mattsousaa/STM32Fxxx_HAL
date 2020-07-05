@@ -1,0 +1,12 @@
+main.c:26:6:printmsg	96	static
+main.c:39:5:main	8	static
+main.c:62:6:SystemClock_Config_HSE	96	static
+main.c:145:6:RTC_Init	8	static
+main.c:160:6:RTC_CalendarConfig	32	static
+main.c:185:6:GPIO_Init	56	static
+main.c:212:6:UART2_Init	8	static
+main.c:228:7:getDayofweek	56	static
+main.c:241:6:HAL_GPIO_EXTI_Callback	64	static
+main.c:257:6:RTC_AlarmConfig	48	static
+main.c:281:6:HAL_RTC_AlarmAEventCallback	40	static
+main.c:300:6:Error_handler	4	static

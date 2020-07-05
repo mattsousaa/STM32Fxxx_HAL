@@ -1623,3 +1623,21 @@ java.lang.RuntimeException
 
 !ENTRY org.eclipse.cdt.core 1 0 2020-07-04 16:50:12.828
 !MESSAGE Indexed 'RTC_AlarmA' (24 sources, 107 headers) in 3,63 sec: 8.303 declarations; 35.840 references; 2 unresolved inclusions; 29 syntax errors; 145 unresolved names (0,33%)
+!SESSION 2020-07-04 20:54:41.330 -----------------------------------------------
+eclipse.buildId=Version 1.2.0
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-07-04 20:54:55.717
+!MESSAGE Log4j initialized with config file C:\Users\mateu\Documents\Curso STM32\MCU2\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-07-04 20:55:09.400
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-07-04 20:55:10.543
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-07-04 20:56:56.914
+!MESSAGE Indexed 'RTC_AlarmA_12h' (24 sources, 48 headers) in 3,5 sec: 6.104 declarations; 26.604 references; 32 unresolved inclusions; 296 syntax errors; 6.168 unresolved names (16%)
