@@ -25,6 +25,17 @@ Applications developed during course [MCU2](https://www.udemy.com/course/microco
 * **RTC_Alarm_standby_wakeup** - Setting the RTC alarm in Standby mode
 * **RTC_Date_Time** - Date setting on the RTC peripheral
 * **SLEEP-ON-EXIT_1** - Sleep mode through the feature Sleep on exit
+* **TIMER_BASE** - Setting up a time base using Timers in polling mode
+* **TIMER_BASE_IT** - Setting up a time base using Timers in interrupt mode
+* **TIMER_BASE_US** - Setting a time base in microseconds using Timers with interrupts
+* **TIMER_IC_1** - Timer input capture application to identify the frequency of an input signal
+* **TIMER_OC_1** - Timer output capture application to generate signals of different frequencies
+* **TIMER_OC_PWM1** - Timer application for generating PWM signals
+* **TIMER_PWM_LED** - Application of fadding effect on an LED using PWM
+* **USART2_Example** - Application with UART peripheral to use the HAL STM framework
+* **USART2_Example_IT** - Application with UART peripheral to use the HAL STM framework with interrupts
+* **WFE_Button** - Sleep mode with WFE feature
+* **WFI_Button** - Sleep mode with WFI feature
 
 ## Usage
 
