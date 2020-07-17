@@ -2,6 +2,29 @@
 
 Applications developed during course [MCU2](https://www.udemy.com/course/microcontroller-programming-stm32-timers-pwm-can-bus-protocol/) by [FastBit Embedded Brain Academy](http://fastbitlab.com/). Contains source coude for all exercises done during the course with the help of STM32Cube Hardware Abstraction Layer (HAL). Here you will find several applications such as clock settings (HSI, HSE and PLL), Timers, PWM, ADC, DAC, CAN, Low Power modes (RUN, SLEEP, STOP and STANDBY modes) and RTC (Calendar block and Alarm). All of these were tested and adjusted for [Nucleo-F446RE](https://br.mouser.com/ProductDetail/STMicroelectronics/NUCLEO-F446RE?qs=PRtH0mD6DWYnuBoPSlbRCA%3D%3D) and other families of STMicroeletronics with Cortex-M3. In the latter family, applications are tested on the proteus. 
 
+## Folder Contents
+
+* ADC_Sensor - Example of using the ADC channel by temperature sensor
+* ADC_Sensor_IT - Example of using the ADC channel temperature sensor by interrupt
+* BkupSRAM_Standby - Example of use of standby mode and its effects on SRAM memory of the backup domain
+* CAN_LoopBack - Example of using the CAN peripheral with a SN65HVD230 transceiver for testing in loopback mode
+* CAN_LoopBack_IT - Example of using the CAN peripheral with a SN65HVD230 transceiver for testing in loopback mode with interrupt
+* CAN_Normal_Mode_IT - Example of using the CAN peripheral with a SN65HVD230 transceiver in normal operating mode
+* Current_Measurement_Run_Mode - Current measurement of the STM board in Run Mode using the CPU Benchmark
+* Current_Measurement_Sleep_Mode - Current measurement of the STM board in Sleep Mode using the CPU Benchmark
+* Current_Measurement_Standby_Mode - Current measurement of the STM board in Standby Mode using the CPU Benchmark
+* Current_Measurement_Stop_Mode - Current measurement of the STM board in Stop Mode using the CPU Benchmark
+* DAC_LED - Example of LED fadding effect using DAC
+* HSE_SYSCLK_8Mhz - STM board running with external oscillator crystal (HSE) at 8MHz
+* PLL_SYSCLK - Configuration application for PLL modes
+* PLL_SYSCLK_HSE - Configuration application for PLL mode with external oscillator
+* PWM_DAC - PWM via DAC and simple low-pass filter
+* RTC_AlarmA - RTC peripheral A clock setup application
+* RTC_AlarmA_12h - Setting the RTC alarm for every 12h PM
+* RTC_Alarm_Sunday_8AM - Setting the RTC alarm to 8h AM
+* RTC_Alarm_standby_wakeup - Setting the RTC alarm in Standby mode
+* RTC_Date_Time - Date setting on the RTC peripheral
+* SLEEP-ON-EXIT_1 - Sleep mode through the feature Sleep on exit
 
 ## Usage
 
