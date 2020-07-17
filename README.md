@@ -10,10 +10,10 @@ Applications developed during course [MCU2](https://www.udemy.com/course/microco
 * **CAN_LoopBack** - Example of using the CAN peripheral with a SN65HVD230 transceiver in loopback mode
 * **CAN_LoopBack_IT** - Example of using the CAN peripheral with a SN65HVD230 transceiver in loopback mode with interrupt
 * **CAN_Normal_Mode_IT** - Example of using the CAN peripheral with a SN65HVD230 transceiver in normal operating mode
-* **Current_Measurement_Run_Mode** - Current measurement of the STM board in Run Mode using the CPU Benchmark
-* **Current_Measurement_Sleep_Mode** - Current measurement of the STM board in Sleep Mode using the CPU Benchmark
-* **Current_Measurement_Standby_Mode** - Current measurement of the STM board in Standby Mode using the CPU Benchmark
-* **Current_Measurement_Stop_Mode** - Current measurement of the STM board in Stop Mode using the CPU Benchmark
+* **Current_Measurement_Run_Mode** - Current measurement in Run Mode using the CPU Benchmark
+* **Current_Measurement_Sleep_Mode** - Current measurement in Sleep Mode using the CPU Benchmark
+* **Current_Measurement_Standby_Mode** - Current measurement in Standby Mode using the CPU Benchmark
+* **Current_Measurement_Stop_Mode** - Current measurement board in Stop Mode using the CPU Benchmark
 * **DAC_LED** - Example of LED fadding effect using DAC
 * **HSE_SYSCLK_8Mhz** - STM board running with external oscillator crystal (HSE) at 8MHz
 * **PLL_SYSCLK** - Configuration application for PLL modes
