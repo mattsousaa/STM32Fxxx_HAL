@@ -7,8 +7,8 @@ Applications developed during course [MCU2](https://www.udemy.com/course/microco
 * **ADC_Sensor** - Example of using the ADC channel by temperature sensor
 * **ADC_Sensor_IT** - Example of using the ADC channel temperature sensor by interrupt
 * **BkupSRAM_Standby** - Example of use of standby mode and its effects on SRAM memory of the backup domain
-* **CAN_LoopBack** - Example of using the CAN peripheral with a SN65HVD230 transceiver for testing in loopback mode
-* **CAN_LoopBack_IT** - Example of using the CAN peripheral with a SN65HVD230 transceiver for testing in loopback mode with interrupt
+* **CAN_LoopBack** - Example of using the CAN peripheral with a SN65HVD230 transceiver in loopback mode
+* **CAN_LoopBack_IT** - Example of using the CAN peripheral with a SN65HVD230 transceiver in loopback mode with interrupt
 * **CAN_Normal_Mode_IT** - Example of using the CAN peripheral with a SN65HVD230 transceiver in normal operating mode
 * **Current_Measurement_Run_Mode** - Current measurement of the STM board in Run Mode using the CPU Benchmark
 * **Current_Measurement_Sleep_Mode** - Current measurement of the STM board in Sleep Mode using the CPU Benchmark
